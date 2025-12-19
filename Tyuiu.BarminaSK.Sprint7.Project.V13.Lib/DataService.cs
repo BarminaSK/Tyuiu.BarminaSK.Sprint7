@@ -74,5 +74,68 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Lib
 
             File.WriteAllLines(filePath, lines);
         }
+        public int GetCount(List<Country_BSK> countries)
+        {
+            return countries.Count;
+        }
+        public long GetTotalPopulation(List<Country_BSK> countries)
+        {
+            long total = 0;
+
+            foreach (Country_BSK country in countries)
+            {
+                total += country.Population;
+            }
+
+            return total;
+        }
+        public double GetAverageArea(List<Country_BSK> countries)
+        {
+            if (countries.Count == 0)
+                return 0;
+
+            double sum = 0;
+
+            foreach (Country_BSK country in countries)
+            {
+                sum += country.Area;
+            }
+
+            return sum / countries.Count;
+        }
+        public double GetMaxArea(List<Country_BSK> countries)
+        {
+            if (countries.Count == 0)
+                return 0;
+
+            double max = double.MinValue;
+
+            foreach (Country_BSK country in countries)
+            {
+                if (country.Area > max)
+                {
+                    max = country.Area;
+                }
+            }
+
+            return max;
+        }
+        public double GetMinArea(List<Country_BSK> countries)
+        {
+            if (countries.Count == 0)
+                return 0;
+
+            double min = double.MaxValue;  // Самое большое возможное число
+
+            foreach (Country_BSK country in countries)
+            {
+                if (country.Area < min)
+                {
+                    min = country.Area;
+                }
+            }
+
+            return min;
+        }
     }
 }
