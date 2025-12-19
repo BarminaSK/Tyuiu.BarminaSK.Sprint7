@@ -157,5 +157,66 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Test
 
             Assert.AreEqual(0, result);
         }
+        [TestMethod]
+        public void ValidSearchByName()
+        {
+            DataService_BSK service = new DataService_BSK();
+
+            List<Country_BSK> testData = new List<Country_BSK>
+            {
+                new Country_BSK("Россия", "Москва", 17100000, true, 146000000, "Русские", ""),
+                new Country_BSK("Германия", "Берлин", 357022, true, 83000000, "Немцы", ""),
+                new Country_BSK("Франция", "Париж", 643801, true, 67000000, "Французы", ""),
+                new Country_BSK("Бразилия", "Бразилиа", 8515767, false, 213000000, "Бразильцы", "")
+            };
+
+            List<Country_BSK> result = service.SearchByName(testData, "рос");
+
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("Россия", result[0].Name);
+        }
+        [TestMethod]
+        public void ValidFilterByDeveloped()
+        {
+            DataService_BSK service = new DataService_BSK();
+
+            List<Country_BSK> testData = new List<Country_BSK>
+            {
+                new Country_BSK("Россия", "Москва", 17100000, true, 146000000, "Русские", ""),
+                new Country_BSK("Германия", "Берлин", 357022, true, 83000000, "Немцы", ""),
+                new Country_BSK("Бразилия", "Бразилиа", 8515767, false, 213000000, "Бразильцы", "")
+            };
+
+            List<Country_BSK> result = service.FilterByDeveloped(testData, true);
+
+            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual("Россия", result[0].Name);
+            Assert.AreEqual("Германия", result[1].Name);
+
+            List<Country_BSK> result2 = service.FilterByDeveloped(testData, false);
+
+            Assert.AreEqual(1, result2.Count);
+            Assert.AreEqual("Бразилия", result2[0].Name);
+        }
+        [TestMethod]
+        public void ValidFilterByPopulationRange()
+        {
+            // Arrange
+            DataService_BSK service = new DataService_BSK();
+
+            List<Country_BSK> testData = new List<Country_BSK>
+            {
+                new Country_BSK("Россия", "Москва", 17100000, true, 146000000, "Русские", ""),
+                new Country_BSK("Германия", "Берлин", 357022, true, 83000000, "Немцы", ""),
+                new Country_BSK("Франция", "Париж", 643801, true, 67000000, "Французы", "")
+            };
+
+            List<Country_BSK> result = service.FilterByPopulationRange(testData, 70000000, 150000000);
+
+            Assert.AreEqual(2, result.Count);
+
+            bool hasFrance = result.Any(c => c.Name == "Франция");
+            Assert.IsFalse(hasFrance);
+        }
     }
 }

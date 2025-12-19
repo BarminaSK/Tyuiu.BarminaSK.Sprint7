@@ -137,5 +137,51 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Lib
 
             return min;
         }
+        public List<Country_BSK> SearchByName(List<Country_BSK> countries, string searchText)
+        {
+            List<Country_BSK> result = new List<Country_BSK>();
+
+            foreach (Country_BSK country in countries)
+            {
+                if (country.Name != null &&
+                    country.Name.ToLower().Contains(searchText.ToLower()))
+                {
+                    result.Add(country);
+                }
+            }
+
+            return result;
+        }
+        public List<Country_BSK> FilterByDeveloped(List<Country_BSK> countries, bool isDeveloped)
+        {
+            List<Country_BSK> result = new List<Country_BSK>();
+
+            foreach (Country_BSK country in countries)
+            {
+                if (country.IsDeveloped == isDeveloped)
+                {
+                    result.Add(country);
+                }
+            }
+
+            return result;
+        }
+        public List<Country_BSK> FilterByPopulationRange(List<Country_BSK> countries,
+                                                long minPopulation,
+                                                long maxPopulation)
+        {
+            List<Country_BSK> result = new List<Country_BSK>();
+
+            foreach (Country_BSK country in countries)
+            {
+                if (country.Population >= minPopulation &&
+                    country.Population <= maxPopulation)
+                {
+                    result.Add(country);
+                }
+            }
+
+            return result;
+        }
     }
 }
