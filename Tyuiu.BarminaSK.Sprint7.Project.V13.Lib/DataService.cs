@@ -183,5 +183,59 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Lib
 
             return result;
         }
+        public List<Country_BSK> SortBy(List<Country_BSK> countries, string sortBy, bool ascending = true)
+        {
+            List<Country_BSK> sortedList = new List<Country_BSK>(countries);
+
+            switch (sortBy.ToLower())
+            {
+                case "name":
+                    if (ascending)
+                        sortedList.Sort((a, b) => string.Compare(a.Name, b.Name));
+                    else
+                        sortedList.Sort((a, b) => string.Compare(b.Name, a.Name));
+                    break;
+
+                case "capital":
+                    if (ascending)
+                        sortedList.Sort((a, b) => string.Compare(a.Capital, b.Capital));
+                    else
+                        sortedList.Sort((a, b) => string.Compare(b.Capital, a.Capital));
+                    break;
+
+                case "area":
+                    if (ascending)
+                        sortedList.Sort((a, b) => a.Area.CompareTo(b.Area));
+                    else
+                        sortedList.Sort((a, b) => b.Area.CompareTo(a.Area));
+                    break;
+
+                case "population":
+                    if (ascending)
+                        sortedList.Sort((a, b) => a.Population.CompareTo(b.Population));
+                    else
+                        sortedList.Sort((a, b) => b.Population.CompareTo(a.Population));
+                    break;
+
+                case "isdeveloped":
+                    if (ascending)
+                        sortedList.Sort((a, b) => b.IsDeveloped.CompareTo(a.IsDeveloped));
+                    else
+                        sortedList.Sort((a, b) => a.IsDeveloped.CompareTo(b.IsDeveloped));
+                    break;
+
+                default:
+                    sortedList.Sort((a, b) => string.Compare(a.Name, b.Name));
+                    break;
+            }
+
+            return sortedList;
+        }
+        public List<Country_BSK> GetChartData(List<Country_BSK> countries, int topCount = 10)
+        {
+            List<Country_BSK> sorted = SortBy(countries, "population", false);
+
+            return sorted.Take(topCount).ToList();
+        }
     }
 }
