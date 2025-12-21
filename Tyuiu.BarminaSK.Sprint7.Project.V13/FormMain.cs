@@ -89,7 +89,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
         }
 
 
-        
+
 
         private void buttonSearch_BSK_Click(object sender, EventArgs e)
         {
@@ -162,6 +162,54 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                 {
                     MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
                 }
+            }
+        }
+
+        private void ToolStripMenuItemExit_BSK_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите выйти?",
+                                         "Выход из программы",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void ToolStripMenuItemAdd_BSK_Click(object sender, EventArgs e)
+        {
+            AddNewCountry();
+        }
+
+        private void buttonAddCountry_BSK_Click(object sender, EventArgs e)
+        {
+            AddNewCountry();
+        }
+        private void AddNewCountry()
+        {
+            FormAddCountry_BSK addForm = new FormAddCountry_BSK();
+
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                Country_BSK newCountry = new Country_BSK
+                {
+                    Name = addForm.CountryName,
+                    Capital = addForm.Capital,
+                    Area = addForm.Area,
+                    IsDeveloped = addForm.IsDeveloped,
+                    Population = addForm.Population,
+                    MainNationality = addForm.MainNationality,
+                    Note = addForm.Note
+                };
+
+                countries.Add(newCountry);
+
+                dataGridViewCountries_BSK.DataSource = null;
+                dataGridViewCountries_BSK.DataSource = countries;
+
+                MessageBox.Show($"Добавлена страна: {newCountry.Name}", "Успешно");
             }
         }
     }

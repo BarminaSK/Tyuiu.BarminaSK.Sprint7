@@ -33,7 +33,7 @@
             ToolStripMenuItemFile_BSK = new ToolStripMenuItem();
             ToolStripMenuItemOpen_BSK = new ToolStripMenuItem();
             ToolStripMenuItemSave_BSK = new ToolStripMenuItem();
-            ToolStripMenuItemOutPut_BSK = new ToolStripMenuItem();
+            ToolStripMenuItemExit_BSK = new ToolStripMenuItem();
             ToolStripMenuItemEditing_BSK = new ToolStripMenuItem();
             ToolStripMenuItemAdd_BSK = new ToolStripMenuItem();
             ToolStripMenuItemDelete_BSK = new ToolStripMenuItem();
@@ -98,7 +98,7 @@
             // 
             // ToolStripMenuItemFile_BSK
             // 
-            ToolStripMenuItemFile_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemOpen_BSK, ToolStripMenuItemSave_BSK, ToolStripMenuItemOutPut_BSK });
+            ToolStripMenuItemFile_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemOpen_BSK, ToolStripMenuItemSave_BSK, ToolStripMenuItemExit_BSK });
             ToolStripMenuItemFile_BSK.Name = "ToolStripMenuItemFile_BSK";
             ToolStripMenuItemFile_BSK.Size = new Size(61, 25);
             ToolStripMenuItemFile_BSK.Text = "Файл";
@@ -106,22 +106,23 @@
             // ToolStripMenuItemOpen_BSK
             // 
             ToolStripMenuItemOpen_BSK.Name = "ToolStripMenuItemOpen_BSK";
-            ToolStripMenuItemOpen_BSK.Size = new Size(224, 26);
+            ToolStripMenuItemOpen_BSK.Size = new Size(170, 26);
             ToolStripMenuItemOpen_BSK.Text = "Открыть";
             ToolStripMenuItemOpen_BSK.Click += ToolStripMenuItemOpen_BSK_Click;
             // 
             // ToolStripMenuItemSave_BSK
             // 
             ToolStripMenuItemSave_BSK.Name = "ToolStripMenuItemSave_BSK";
-            ToolStripMenuItemSave_BSK.Size = new Size(224, 26);
+            ToolStripMenuItemSave_BSK.Size = new Size(170, 26);
             ToolStripMenuItemSave_BSK.Text = "Сохранить";
             ToolStripMenuItemSave_BSK.Click += ToolStripMenuItemSave_BSK_Click;
             // 
-            // ToolStripMenuItemOutPut_BSK
+            // ToolStripMenuItemExit_BSK
             // 
-            ToolStripMenuItemOutPut_BSK.Name = "ToolStripMenuItemOutPut_BSK";
-            ToolStripMenuItemOutPut_BSK.Size = new Size(224, 26);
-            ToolStripMenuItemOutPut_BSK.Text = "Вывод";
+            ToolStripMenuItemExit_BSK.Name = "ToolStripMenuItemExit_BSK";
+            ToolStripMenuItemExit_BSK.Size = new Size(170, 26);
+            ToolStripMenuItemExit_BSK.Text = "Выход";
+            ToolStripMenuItemExit_BSK.Click += ToolStripMenuItemExit_BSK_Click;
             // 
             // ToolStripMenuItemEditing_BSK
             // 
@@ -133,19 +134,20 @@
             // ToolStripMenuItemAdd_BSK
             // 
             ToolStripMenuItemAdd_BSK.Name = "ToolStripMenuItemAdd_BSK";
-            ToolStripMenuItemAdd_BSK.Size = new Size(165, 26);
+            ToolStripMenuItemAdd_BSK.Size = new Size(224, 26);
             ToolStripMenuItemAdd_BSK.Text = "Добавить";
+            ToolStripMenuItemAdd_BSK.Click += ToolStripMenuItemAdd_BSK_Click;
             // 
             // ToolStripMenuItemDelete_BSK
             // 
             ToolStripMenuItemDelete_BSK.Name = "ToolStripMenuItemDelete_BSK";
-            ToolStripMenuItemDelete_BSK.Size = new Size(165, 26);
+            ToolStripMenuItemDelete_BSK.Size = new Size(224, 26);
             ToolStripMenuItemDelete_BSK.Text = "Удалить";
             // 
             // ToolStripMenuItemEdit_BSK
             // 
             ToolStripMenuItemEdit_BSK.Name = "ToolStripMenuItemEdit_BSK";
-            ToolStripMenuItemEdit_BSK.Size = new Size(165, 26);
+            ToolStripMenuItemEdit_BSK.Size = new Size(224, 26);
             ToolStripMenuItemEdit_BSK.Text = "Изменить";
             // 
             // ToolStripMenuItemView_BSK
@@ -272,7 +274,7 @@
             buttonEditCountry_BSK.FlatAppearance.BorderSize = 2;
             buttonEditCountry_BSK.FlatStyle = FlatStyle.Flat;
             buttonEditCountry_BSK.Image = Properties.Resources.Edit;
-            buttonEditCountry_BSK.Location = new Point(355, 3);
+            buttonEditCountry_BSK.Location = new Point(270, 3);
             buttonEditCountry_BSK.Name = "buttonEditCountry_BSK";
             buttonEditCountry_BSK.Size = new Size(79, 74);
             buttonEditCountry_BSK.TabIndex = 4;
@@ -285,7 +287,7 @@
             buttonDeleteCountry_BSK.FlatAppearance.BorderSize = 2;
             buttonDeleteCountry_BSK.FlatStyle = FlatStyle.Flat;
             buttonDeleteCountry_BSK.Image = Properties.Resources.Delete;
-            buttonDeleteCountry_BSK.Location = new Point(270, 3);
+            buttonDeleteCountry_BSK.Location = new Point(355, 3);
             buttonDeleteCountry_BSK.Name = "buttonDeleteCountry_BSK";
             buttonDeleteCountry_BSK.Size = new Size(79, 74);
             buttonDeleteCountry_BSK.TabIndex = 3;
@@ -304,6 +306,7 @@
             buttonAddCountry_BSK.TabIndex = 2;
             toolTipMain_BSK.SetToolTip(buttonAddCountry_BSK, "Добавить новую страну");
             buttonAddCountry_BSK.UseVisualStyleBackColor = true;
+            buttonAddCountry_BSK.Click += buttonAddCountry_BSK_Click;
             // 
             // buttonSaveFile_BSK
             // 
@@ -542,7 +545,7 @@
         private ToolStripMenuItem ToolStripMenuItemFile_BSK;
         private ToolStripMenuItem ToolStripMenuItemOpen_BSK;
         private ToolStripMenuItem ToolStripMenuItemSave_BSK;
-        private ToolStripMenuItem ToolStripMenuItemOutPut_BSK;
+        private ToolStripMenuItem ToolStripMenuItemExit_BSK;
         private ToolStripMenuItem ToolStripMenuItemEditing_BSK;
         private ToolStripMenuItem ToolStripMenuItemAdd_BSK;
         private ToolStripMenuItem ToolStripMenuItemDelete_BSK;
