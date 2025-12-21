@@ -1,59 +1,168 @@
-using Tyuiu.BarminaSK.Sprint7.Project.V13.Lib;
+п»їusing Tyuiu.BarminaSK.Sprint7.Project.V13.Lib;
 
 namespace Tyuiu.BarminaSK.Sprint7.Project.V13
 {
     public partial class FormMain : Form
     {
+        private DataService_BSK dataService;
+        private List<Country_BSK> countries;
+        private List<Country_BSK> currentDisplay;
         public FormMain()
         {
             InitializeComponent();
-            toolTipMain_BSK.ToolTipTitle = "Открытие файла";
-            toolTipMain_BSK.SetToolTip(buttonOpenFile_BSK, "Загрузить данные из CSV-файла");
 
-            toolTipMain_BSK.ToolTipTitle = "Сохранение";
-            toolTipMain_BSK.SetToolTip(buttonSaveFile_BSK, "Сохранить изменения в файл");
+            dataService = new DataService_BSK();
+            countries = new List<Country_BSK>();
+            currentDisplay = new List<Country_BSK>();
 
-            toolTipMain_BSK.ToolTipTitle = "Добавление";
-            toolTipMain_BSK.SetToolTip(buttonAddCountry_BSK, "Добавить новую страну");
-
-            toolTipMain_BSK.ToolTipTitle = "Редактирование";
-            toolTipMain_BSK.SetToolTip(buttonEditCountry_BSK, "Редактировать выбранную запись");
-
-            toolTipMain_BSK.ToolTipTitle = "Удаление";
-            toolTipMain_BSK.SetToolTip(buttonDeleteCountry_BSK, "Удалить выбранную страну");
-
-            toolTipMain_BSK.ToolTipTitle = "График";
-            toolTipMain_BSK.SetToolTip(buttonShowChart_BSK, "Построить график");
+            SetupInitialState();
         }
+        private void SetupInitialState()
+        {
+            if (dataGridViewCountries_BSK.Columns.Count == 0)
+            {
+                SetupDataGridViewColumns();
+            }
+        }
+        private void SetupDataGridViewColumns()
+        {
+            dataGridViewCountries_BSK.AutoGenerateColumns = false;
+            dataGridViewCountries_BSK.Columns.Clear();
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Name",
+                HeaderText = "РЎС‚СЂР°РЅР°",
+                Width = 150
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Capital",
+                HeaderText = "РЎС‚РѕР»РёС†Р°",
+                Width = 120
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Area",
+                HeaderText = "РџР»РѕС‰Р°РґСЊ (РєРјВІ)",
+                Width = 120,
+                DefaultCellStyle = new DataGridViewCellStyle() { Format = "N0" }
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "IsDeveloped",
+                HeaderText = "Р Р°Р·РІРёС‚Р°СЏ",
+                Width = 80
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Population",
+                HeaderText = "РќР°СЃРµР»РµРЅРёРµ",
+                Width = 120,
+                DefaultCellStyle = new DataGridViewCellStyle() { Format = "N0" }
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "MainNationality",
+                HeaderText = "РќР°С†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ",
+                Width = 120
+            });
+
+            dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Note",
+                HeaderText = "РџСЂРёРјРµС‡Р°РЅРёРµ",
+                Width = 150
+            });
+        }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripButtonOpen_BSK_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void dataGridViewOutPut_BSK_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void buttonSaveFile_BSK_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void buttonSearch_BSK_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBoxStatistics_BSK_Enter(object sender, EventArgs e)
+
+        private void dataGridViewCountries_BSK_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void labelAvgArea_BSK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripMenuItemOpen_BSK_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+
+        }
+
+        private void buttonOpenFile_BSK_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+        private void OpenFile()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "CSV files (*.csv)|*.csv";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    countries = dataService.LoadFromCsvFile(dialog.FileName);
+                    dataGridViewCountries_BSK.DataSource = countries;
+                    MessageBox.Show($"Р—Р°РіСЂСѓР¶РµРЅРѕ {countries.Count} СЃС‚СЂР°РЅ", "РЈСЃРїРµС€РЅРѕ");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"РћС€РёР±РєР°: {ex.Message}", "РћС€РёР±РєР°");
+                }
+            }
+        }
+
+        private void ToolStripMenuItemSave_BSK_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+        }
+
+        private void buttonSaveFile_BSK_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+        }
+        private void SaveFile()
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "CSV files (*.csv)|*.csv";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    dataService.SaveToCsvFile(countries, dialog.FileName);
+                    MessageBox.Show($"РЎРѕС…СЂР°РЅРµРЅРѕ {countries.Count} СЃС‚СЂР°РЅ", "РЈСЃРїРµС€РЅРѕ");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"РћС€РёР±РєР°: {ex.Message}", "РћС€РёР±РєР°");
+                }
+            }
         }
     }
 }
