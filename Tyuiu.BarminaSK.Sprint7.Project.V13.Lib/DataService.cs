@@ -40,7 +40,6 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Lib
 
             for (int i = 1; i < allLines.Length; i++)
             {
-                // 4. РАЗБИВАЕМ СТРОКУ ПО ЗАПЯТЫМ
                 string[] columns = allLines[i].Split(',');
 
                 Country_BSK country = new Country_BSK();

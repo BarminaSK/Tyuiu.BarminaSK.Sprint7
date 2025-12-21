@@ -143,12 +143,14 @@
             ToolStripMenuItemDelete_BSK.Name = "ToolStripMenuItemDelete_BSK";
             ToolStripMenuItemDelete_BSK.Size = new Size(224, 26);
             ToolStripMenuItemDelete_BSK.Text = "Удалить";
+            ToolStripMenuItemDelete_BSK.Click += ToolStripMenuItemDelete_BSK_Click;
             // 
             // ToolStripMenuItemEdit_BSK
             // 
             ToolStripMenuItemEdit_BSK.Name = "ToolStripMenuItemEdit_BSK";
             ToolStripMenuItemEdit_BSK.Size = new Size(224, 26);
             ToolStripMenuItemEdit_BSK.Text = "Изменить";
+            ToolStripMenuItemEdit_BSK.Click += ToolStripMenuItemEdit_BSK_Click;
             // 
             // ToolStripMenuItemView_BSK
             // 
@@ -274,12 +276,13 @@
             buttonEditCountry_BSK.FlatAppearance.BorderSize = 2;
             buttonEditCountry_BSK.FlatStyle = FlatStyle.Flat;
             buttonEditCountry_BSK.Image = Properties.Resources.Edit;
-            buttonEditCountry_BSK.Location = new Point(270, 3);
+            buttonEditCountry_BSK.Location = new Point(355, 3);
             buttonEditCountry_BSK.Name = "buttonEditCountry_BSK";
             buttonEditCountry_BSK.Size = new Size(79, 74);
             buttonEditCountry_BSK.TabIndex = 4;
             toolTipMain_BSK.SetToolTip(buttonEditCountry_BSK, "Редактировать выбранную страну");
             buttonEditCountry_BSK.UseVisualStyleBackColor = true;
+            buttonEditCountry_BSK.Click += buttonEditCountry_BSK_Click;
             // 
             // buttonDeleteCountry_BSK
             // 
@@ -287,12 +290,13 @@
             buttonDeleteCountry_BSK.FlatAppearance.BorderSize = 2;
             buttonDeleteCountry_BSK.FlatStyle = FlatStyle.Flat;
             buttonDeleteCountry_BSK.Image = Properties.Resources.Delete;
-            buttonDeleteCountry_BSK.Location = new Point(355, 3);
+            buttonDeleteCountry_BSK.Location = new Point(270, 3);
             buttonDeleteCountry_BSK.Name = "buttonDeleteCountry_BSK";
             buttonDeleteCountry_BSK.Size = new Size(79, 74);
             buttonDeleteCountry_BSK.TabIndex = 3;
             toolTipMain_BSK.SetToolTip(buttonDeleteCountry_BSK, "Удалить выбранную страну");
             buttonDeleteCountry_BSK.UseVisualStyleBackColor = true;
+            buttonDeleteCountry_BSK.Click += buttonDeleteCountry_BSK_Click;
             // 
             // buttonAddCountry_BSK
             // 
@@ -436,9 +440,11 @@
             dataGridViewCountries_BSK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCountries_BSK.Dock = DockStyle.Fill;
             dataGridViewCountries_BSK.Location = new Point(3, 25);
+            dataGridViewCountries_BSK.MultiSelect = false;
             dataGridViewCountries_BSK.Name = "dataGridViewCountries_BSK";
             dataGridViewCountries_BSK.RowHeadersVisible = false;
             dataGridViewCountries_BSK.RowHeadersWidth = 51;
+            dataGridViewCountries_BSK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCountries_BSK.Size = new Size(822, 493);
             dataGridViewCountries_BSK.TabIndex = 0;
             dataGridViewCountries_BSK.CellContentClick += dataGridViewCountries_BSK_CellContentClick;

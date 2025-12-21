@@ -16,6 +16,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             currentDisplay = new List<Country_BSK>();
 
             SetupInitialState();
+
         }
         private void SetupInitialState()
         {
@@ -47,7 +48,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             {
                 DataPropertyName = "Area",
                 HeaderText = "Площадь (км²)",
-                Width = 120,
+                Width = 110,
                 DefaultCellStyle = new DataGridViewCellStyle() { Format = "N0" }
             });
 
@@ -62,7 +63,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             {
                 DataPropertyName = "Population",
                 HeaderText = "Население",
-                Width = 120,
+                Width = 100,
                 DefaultCellStyle = new DataGridViewCellStyle() { Format = "N0" }
             });
 
@@ -70,7 +71,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             {
                 DataPropertyName = "MainNationality",
                 HeaderText = "Национальность",
-                Width = 120
+                Width = 130
             });
 
             dataGridViewCountries_BSK.Columns.Add(new DataGridViewTextBoxColumn()
@@ -115,6 +116,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
 
         private void buttonOpenFile_BSK_Click(object sender, EventArgs e)
         {
+            //buttonOpenFile_BSK.ToolTipTitle = "Открыть файл";
             OpenFile();
         }
         private void OpenFile()
@@ -210,6 +212,89 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                 dataGridViewCountries_BSK.DataSource = countries;
 
                 MessageBox.Show($"Добавлена страна: {newCountry.Name}", "Успешно");
+            }
+        }
+
+        private void ToolStripMenuItemDelete_BSK_Click(object sender, EventArgs e)
+        {
+            DeleteCountry();
+        }
+
+        private void buttonDeleteCountry_BSK_Click(object sender, EventArgs e)
+        {
+            DeleteCountry();
+        }
+
+        private void DeleteCountry()
+        {
+            if (dataGridViewCountries_BSK.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Выберите страну!");
+                return;
+            }
+
+            var row = dataGridViewCountries_BSK.SelectedRows[0];
+            var country = (Country_BSK)row.DataBoundItem;
+
+            if (MessageBox.Show($"Удалить {country.Name}?",
+                "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                countries.Remove(country);
+
+                dataGridViewCountries_BSK.DataSource = null;
+                dataGridViewCountries_BSK.DataSource = countries;
+
+                MessageBox.Show("Удалено!");
+            }
+        }
+
+        private void ToolStripMenuItemEdit_BSK_Click(object sender, EventArgs e)
+        {
+            EditCountry();
+        }
+
+        private void buttonEditCountry_BSK_Click(object sender, EventArgs e)
+        {
+            EditCountry();
+        }
+        private void EditCountry()
+        {
+            if (dataGridViewCountries_BSK.CurrentRow == null)
+            {
+                MessageBox.Show("Выберите страну для редактирования!",
+                    "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Country_BSK selectedCountry = (Country_BSK)dataGridViewCountries_BSK.CurrentRow.DataBoundItem;
+
+            FormEditCountry_BSK editForm = new FormEditCountry_BSK(selectedCountry);
+
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    selectedCountry.Name = editForm.CountryName;
+                    selectedCountry.Capital = editForm.Capital;
+                    selectedCountry.Area = editForm.Area;
+                    selectedCountry.IsDeveloped = editForm.IsDeveloped;
+                    selectedCountry.Population = editForm.Population;
+                    selectedCountry.MainNationality = editForm.Nationality;
+                    selectedCountry.Note = editForm.Note;
+
+                    dataGridViewCountries_BSK.Refresh();
+
+                    MessageBox.Show($"Данные страны '{selectedCountry.Name}' обновлены!",
+                        "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Ошибка в числовых данных!", "Ошибка");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
+                }
             }
         }
     }
