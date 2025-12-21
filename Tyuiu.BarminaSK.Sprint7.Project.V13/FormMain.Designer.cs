@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             menuStripMain_BSK = new MenuStrip();
             ToolStripMenuItemFile_BSK = new ToolStripMenuItem();
@@ -45,19 +46,24 @@
             ToolStripMenuItemHelp_BSK = new ToolStripMenuItem();
             ToolStripMenuItemAboutProgram_BSK = new ToolStripMenuItem();
             ToolStripMenuItemManual_BSK = new ToolStripMenuItem();
-            toolStripMain_BSK = new ToolStrip();
-            toolStripButtonOpen_BSK = new ToolStripButton();
-            toolStripButtonSave_BSK = new ToolStripButton();
-            toolStripButtonAdd_BSK = new ToolStripButton();
-            toolStripButtonDelete_BSK = new ToolStripButton();
-            toolStripButtonChart_BSK = new ToolStripButton();
-            dataGridViewOutPut_BSK = new DataGridView();
-            groupBoxStatistics_BSK = new GroupBox();
             panelInstruments_BSK = new Panel();
-            toolStripButton1 = new ToolStripButton();
+            panelToolBar_BSK = new Panel();
+            buttonShowChart_BSK = new Button();
+            buttonEditCountry_BSK = new Button();
+            buttonDeleteCountry_BSK = new Button();
+            buttonAddCountry_BSK = new Button();
+            buttonSaveFile_BSK = new Button();
+            buttonOpenFile_BSK = new Button();
+            toolTipMain_BSK = new ToolTip(components);
+            buttonSearch_BSK = new Button();
+            buttonStatistic_BSK = new Button();
+            panelFill_BSK = new Panel();
+            dataGridViewCountries_BSK = new DataGridView();
+            groupBoxStatistics_BSK = new GroupBox();
             menuStripMain_BSK.SuspendLayout();
-            toolStripMain_BSK.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewOutPut_BSK).BeginInit();
+            panelToolBar_BSK.SuspendLayout();
+            panelFill_BSK.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCountries_BSK).BeginInit();
             SuspendLayout();
             // 
             // menuStripMain_BSK
@@ -164,110 +170,178 @@
             ToolStripMenuItemManual_BSK.Size = new Size(190, 26);
             ToolStripMenuItemManual_BSK.Text = "Руководство";
             // 
-            // toolStripMain_BSK
-            // 
-            toolStripMain_BSK.GripStyle = ToolStripGripStyle.Hidden;
-            toolStripMain_BSK.ImageScalingSize = new Size(20, 20);
-            toolStripMain_BSK.Items.AddRange(new ToolStripItem[] { toolStripButtonOpen_BSK, toolStripButtonSave_BSK, toolStripButtonAdd_BSK, toolStripButtonDelete_BSK, toolStripButtonChart_BSK, toolStripButton1 });
-            toolStripMain_BSK.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            toolStripMain_BSK.Location = new Point(0, 29);
-            toolStripMain_BSK.Name = "toolStripMain_BSK";
-            toolStripMain_BSK.Size = new Size(1082, 27);
-            toolStripMain_BSK.TabIndex = 1;
-            toolStripMain_BSK.Text = "toolStrip1";
-            // 
-            // toolStripButtonOpen_BSK
-            // 
-            toolStripButtonOpen_BSK.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButtonOpen_BSK.Image = Properties.Resources.Open2;
-            toolStripButtonOpen_BSK.ImageTransparentColor = Color.Magenta;
-            toolStripButtonOpen_BSK.Name = "toolStripButtonOpen_BSK";
-            toolStripButtonOpen_BSK.Size = new Size(29, 24);
-            toolStripButtonOpen_BSK.Text = "toolStripButton1";
-            toolStripButtonOpen_BSK.Click += toolStripButtonOpen_BSK_Click;
-            // 
-            // toolStripButtonSave_BSK
-            // 
-            toolStripButtonSave_BSK.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButtonSave_BSK.Image = (Image)resources.GetObject("toolStripButtonSave_BSK.Image");
-            toolStripButtonSave_BSK.ImageTransparentColor = Color.Magenta;
-            toolStripButtonSave_BSK.Name = "toolStripButtonSave_BSK";
-            toolStripButtonSave_BSK.Size = new Size(29, 24);
-            toolStripButtonSave_BSK.Text = "toolStripButton1";
-            // 
-            // toolStripButtonAdd_BSK
-            // 
-            toolStripButtonAdd_BSK.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButtonAdd_BSK.Image = (Image)resources.GetObject("toolStripButtonAdd_BSK.Image");
-            toolStripButtonAdd_BSK.ImageTransparentColor = Color.Magenta;
-            toolStripButtonAdd_BSK.Name = "toolStripButtonAdd_BSK";
-            toolStripButtonAdd_BSK.Size = new Size(29, 24);
-            toolStripButtonAdd_BSK.Text = "toolStripButton1";
-            // 
-            // toolStripButtonDelete_BSK
-            // 
-            toolStripButtonDelete_BSK.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButtonDelete_BSK.Image = (Image)resources.GetObject("toolStripButtonDelete_BSK.Image");
-            toolStripButtonDelete_BSK.ImageTransparentColor = Color.Magenta;
-            toolStripButtonDelete_BSK.Name = "toolStripButtonDelete_BSK";
-            toolStripButtonDelete_BSK.Size = new Size(29, 24);
-            toolStripButtonDelete_BSK.Text = "toolStripButton1";
-            // 
-            // toolStripButtonChart_BSK
-            // 
-            toolStripButtonChart_BSK.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButtonChart_BSK.Image = (Image)resources.GetObject("toolStripButtonChart_BSK.Image");
-            toolStripButtonChart_BSK.ImageTransparentColor = Color.Magenta;
-            toolStripButtonChart_BSK.Name = "toolStripButtonChart_BSK";
-            toolStripButtonChart_BSK.Size = new Size(29, 24);
-            toolStripButtonChart_BSK.Text = "toolStripButton1";
-            // 
-            // dataGridViewOutPut_BSK
-            // 
-            dataGridViewOutPut_BSK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewOutPut_BSK.Dock = DockStyle.Fill;
-            dataGridViewOutPut_BSK.Location = new Point(0, 56);
-            dataGridViewOutPut_BSK.Name = "dataGridViewOutPut_BSK";
-            dataGridViewOutPut_BSK.RowHeadersWidth = 51;
-            dataGridViewOutPut_BSK.Size = new Size(1082, 697);
-            dataGridViewOutPut_BSK.TabIndex = 2;
-            // 
-            // groupBoxStatistics_BSK
-            // 
-            groupBoxStatistics_BSK.Dock = DockStyle.Right;
-            groupBoxStatistics_BSK.Location = new Point(782, 56);
-            groupBoxStatistics_BSK.Name = "groupBoxStatistics_BSK";
-            groupBoxStatistics_BSK.Size = new Size(300, 697);
-            groupBoxStatistics_BSK.TabIndex = 3;
-            groupBoxStatistics_BSK.TabStop = false;
-            groupBoxStatistics_BSK.Text = "Статистика";
-            // 
             // panelInstruments_BSK
             // 
             panelInstruments_BSK.Dock = DockStyle.Bottom;
             panelInstruments_BSK.Location = new Point(0, 628);
             panelInstruments_BSK.Name = "panelInstruments_BSK";
-            panelInstruments_BSK.Size = new Size(782, 125);
+            panelInstruments_BSK.Size = new Size(1082, 125);
             panelInstruments_BSK.TabIndex = 0;
             // 
-            // toolStripButton1
+            // panelToolBar_BSK
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(29, 24);
-            toolStripButton1.Text = "toolStripButton1";
+            panelToolBar_BSK.AutoSize = true;
+            panelToolBar_BSK.Controls.Add(buttonStatistic_BSK);
+            panelToolBar_BSK.Controls.Add(buttonSearch_BSK);
+            panelToolBar_BSK.Controls.Add(buttonShowChart_BSK);
+            panelToolBar_BSK.Controls.Add(buttonEditCountry_BSK);
+            panelToolBar_BSK.Controls.Add(buttonDeleteCountry_BSK);
+            panelToolBar_BSK.Controls.Add(buttonAddCountry_BSK);
+            panelToolBar_BSK.Controls.Add(buttonSaveFile_BSK);
+            panelToolBar_BSK.Controls.Add(buttonOpenFile_BSK);
+            panelToolBar_BSK.Dock = DockStyle.Top;
+            panelToolBar_BSK.Location = new Point(0, 29);
+            panelToolBar_BSK.Name = "panelToolBar_BSK";
+            panelToolBar_BSK.Size = new Size(1082, 83);
+            panelToolBar_BSK.TabIndex = 4;
+            // 
+            // buttonShowChart_BSK
+            // 
+            buttonShowChart_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonShowChart_BSK.FlatAppearance.BorderSize = 2;
+            buttonShowChart_BSK.FlatStyle = FlatStyle.Flat;
+            buttonShowChart_BSK.Image = Properties.Resources.Chart;
+            buttonShowChart_BSK.Location = new Point(440, 3);
+            buttonShowChart_BSK.Name = "buttonShowChart_BSK";
+            buttonShowChart_BSK.Size = new Size(78, 77);
+            buttonShowChart_BSK.TabIndex = 5;
+            toolTipMain_BSK.SetToolTip(buttonShowChart_BSK, "Построить график");
+            buttonShowChart_BSK.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditCountry_BSK
+            // 
+            buttonEditCountry_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonEditCountry_BSK.FlatAppearance.BorderSize = 2;
+            buttonEditCountry_BSK.FlatStyle = FlatStyle.Flat;
+            buttonEditCountry_BSK.Image = Properties.Resources.Edit;
+            buttonEditCountry_BSK.Location = new Point(355, 3);
+            buttonEditCountry_BSK.Name = "buttonEditCountry_BSK";
+            buttonEditCountry_BSK.Size = new Size(79, 77);
+            buttonEditCountry_BSK.TabIndex = 4;
+            toolTipMain_BSK.SetToolTip(buttonEditCountry_BSK, "Редактировать выбранную страну");
+            buttonEditCountry_BSK.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteCountry_BSK
+            // 
+            buttonDeleteCountry_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonDeleteCountry_BSK.FlatAppearance.BorderSize = 2;
+            buttonDeleteCountry_BSK.FlatStyle = FlatStyle.Flat;
+            buttonDeleteCountry_BSK.Image = Properties.Resources.Delete;
+            buttonDeleteCountry_BSK.Location = new Point(270, 3);
+            buttonDeleteCountry_BSK.Name = "buttonDeleteCountry_BSK";
+            buttonDeleteCountry_BSK.Size = new Size(79, 77);
+            buttonDeleteCountry_BSK.TabIndex = 3;
+            toolTipMain_BSK.SetToolTip(buttonDeleteCountry_BSK, "Удалить выбранную страну");
+            buttonDeleteCountry_BSK.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddCountry_BSK
+            // 
+            buttonAddCountry_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonAddCountry_BSK.FlatAppearance.BorderSize = 2;
+            buttonAddCountry_BSK.FlatStyle = FlatStyle.Flat;
+            buttonAddCountry_BSK.Image = Properties.Resources.Add;
+            buttonAddCountry_BSK.Location = new Point(185, 3);
+            buttonAddCountry_BSK.Name = "buttonAddCountry_BSK";
+            buttonAddCountry_BSK.Size = new Size(79, 77);
+            buttonAddCountry_BSK.TabIndex = 2;
+            toolTipMain_BSK.SetToolTip(buttonAddCountry_BSK, "Добавить новую страну");
+            buttonAddCountry_BSK.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveFile_BSK
+            // 
+            buttonSaveFile_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonSaveFile_BSK.FlatAppearance.BorderSize = 2;
+            buttonSaveFile_BSK.FlatStyle = FlatStyle.Flat;
+            buttonSaveFile_BSK.Image = Properties.Resources.Save;
+            buttonSaveFile_BSK.Location = new Point(97, 3);
+            buttonSaveFile_BSK.Name = "buttonSaveFile_BSK";
+            buttonSaveFile_BSK.Size = new Size(82, 77);
+            buttonSaveFile_BSK.TabIndex = 1;
+            toolTipMain_BSK.SetToolTip(buttonSaveFile_BSK, "Сохранить данные в CSV-файл");
+            buttonSaveFile_BSK.UseVisualStyleBackColor = true;
+            buttonSaveFile_BSK.Click += buttonSaveFile_BSK_Click;
+            // 
+            // buttonOpenFile_BSK
+            // 
+            buttonOpenFile_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonOpenFile_BSK.FlatAppearance.BorderSize = 2;
+            buttonOpenFile_BSK.FlatStyle = FlatStyle.Flat;
+            buttonOpenFile_BSK.Image = Properties.Resources.Open2;
+            buttonOpenFile_BSK.Location = new Point(12, 3);
+            buttonOpenFile_BSK.Name = "buttonOpenFile_BSK";
+            buttonOpenFile_BSK.Size = new Size(79, 77);
+            buttonOpenFile_BSK.TabIndex = 0;
+            toolTipMain_BSK.SetToolTip(buttonOpenFile_BSK, "Загрузить данные из CSV-файла");
+            buttonOpenFile_BSK.UseVisualStyleBackColor = true;
+            // 
+            // toolTipMain_BSK
+            // 
+            toolTipMain_BSK.IsBalloon = true;
+            toolTipMain_BSK.ToolTipIcon = ToolTipIcon.Info;
+            // 
+            // buttonSearch_BSK
+            // 
+            buttonSearch_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonSearch_BSK.FlatAppearance.BorderSize = 2;
+            buttonSearch_BSK.FlatStyle = FlatStyle.Flat;
+            buttonSearch_BSK.Image = (Image)resources.GetObject("buttonSearch_BSK.Image");
+            buttonSearch_BSK.Location = new Point(908, 3);
+            buttonSearch_BSK.Name = "buttonSearch_BSK";
+            buttonSearch_BSK.Size = new Size(78, 77);
+            buttonSearch_BSK.TabIndex = 6;
+            buttonSearch_BSK.UseVisualStyleBackColor = true;
+            buttonSearch_BSK.Click += buttonSearch_BSK_Click;
+            // 
+            // buttonStatistic_BSK
+            // 
+            buttonStatistic_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonStatistic_BSK.FlatAppearance.BorderSize = 2;
+            buttonStatistic_BSK.FlatStyle = FlatStyle.Flat;
+            buttonStatistic_BSK.Image = (Image)resources.GetObject("buttonStatistic_BSK.Image");
+            buttonStatistic_BSK.Location = new Point(992, 3);
+            buttonStatistic_BSK.Name = "buttonStatistic_BSK";
+            buttonStatistic_BSK.Size = new Size(78, 77);
+            buttonStatistic_BSK.TabIndex = 7;
+            buttonStatistic_BSK.UseVisualStyleBackColor = true;
+            // 
+            // panelFill_BSK
+            // 
+            panelFill_BSK.Controls.Add(groupBoxStatistics_BSK);
+            panelFill_BSK.Controls.Add(dataGridViewCountries_BSK);
+            panelFill_BSK.Dock = DockStyle.Fill;
+            panelFill_BSK.Location = new Point(0, 112);
+            panelFill_BSK.Name = "panelFill_BSK";
+            panelFill_BSK.Size = new Size(1082, 516);
+            panelFill_BSK.TabIndex = 5;
+            // 
+            // dataGridViewCountries_BSK
+            // 
+            dataGridViewCountries_BSK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCountries_BSK.Dock = DockStyle.Fill;
+            dataGridViewCountries_BSK.Location = new Point(0, 0);
+            dataGridViewCountries_BSK.Name = "dataGridViewCountries_BSK";
+            dataGridViewCountries_BSK.RowHeadersWidth = 51;
+            dataGridViewCountries_BSK.Size = new Size(1082, 516);
+            dataGridViewCountries_BSK.TabIndex = 0;
+            // 
+            // groupBoxStatistics_BSK
+            // 
+            groupBoxStatistics_BSK.Dock = DockStyle.Right;
+            groupBoxStatistics_BSK.Location = new Point(832, 0);
+            groupBoxStatistics_BSK.Name = "groupBoxStatistics_BSK";
+            groupBoxStatistics_BSK.Size = new Size(250, 516);
+            groupBoxStatistics_BSK.TabIndex = 1;
+            groupBoxStatistics_BSK.TabStop = false;
+            groupBoxStatistics_BSK.Text = "Статистика";
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1082, 753);
+            Controls.Add(panelFill_BSK);
+            Controls.Add(panelToolBar_BSK);
             Controls.Add(panelInstruments_BSK);
-            Controls.Add(groupBoxStatistics_BSK);
-            Controls.Add(dataGridViewOutPut_BSK);
-            Controls.Add(toolStripMain_BSK);
             Controls.Add(menuStripMain_BSK);
             MainMenuStrip = menuStripMain_BSK;
             Name = "FormMain";
@@ -276,9 +350,9 @@
             Load += Form1_Load;
             menuStripMain_BSK.ResumeLayout(false);
             menuStripMain_BSK.PerformLayout();
-            toolStripMain_BSK.ResumeLayout(false);
-            toolStripMain_BSK.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewOutPut_BSK).EndInit();
+            panelToolBar_BSK.ResumeLayout(false);
+            panelFill_BSK.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCountries_BSK).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -301,15 +375,19 @@
         private ToolStripMenuItem ToolStripMenuItemHelp_BSK;
         private ToolStripMenuItem ToolStripMenuItemAboutProgram_BSK;
         private ToolStripMenuItem ToolStripMenuItemManual_BSK;
-        private ToolStrip toolStripMain_BSK;
-        private ToolStripButton toolStripButtonOpen_BSK;
-        private ToolStripButton toolStripButtonSave_BSK;
-        private ToolStripButton toolStripButtonAdd_BSK;
-        private ToolStripButton toolStripButtonDelete_BSK;
-        private ToolStripButton toolStripButtonChart_BSK;
-        private DataGridView dataGridViewOutPut_BSK;
-        private GroupBox groupBoxStatistics_BSK;
         private Panel panelInstruments_BSK;
-        private ToolStripButton toolStripButton1;
+        private Panel panelToolBar_BSK;
+        private Button buttonShowChart_BSK;
+        private Button buttonEditCountry_BSK;
+        private Button buttonDeleteCountry_BSK;
+        private Button buttonAddCountry_BSK;
+        private Button buttonSaveFile_BSK;
+        private Button buttonOpenFile_BSK;
+        private ToolTip toolTipMain_BSK;
+        private Button buttonSearch_BSK;
+        private Button buttonStatistic_BSK;
+        private Panel panelFill_BSK;
+        private GroupBox groupBoxStatistics_BSK;
+        private DataGridView dataGridViewCountries_BSK;
     }
 }
