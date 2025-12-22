@@ -499,5 +499,11 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                 chartForm.Show();
             }
         }
+
+        private void ToolStripMenuItemManual_BSK_Click(object sender, EventArgs e)
+        {
+            FormHelp_BSK helpForm = new FormHelp_BSK();
+            helpForm.ShowDialog();
+        }
     }
 }

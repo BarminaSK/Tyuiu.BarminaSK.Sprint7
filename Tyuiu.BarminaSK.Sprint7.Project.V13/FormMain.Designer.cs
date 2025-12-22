@@ -179,14 +179,14 @@
             // ToolStripMenuItemStatistic_BSK
             // 
             ToolStripMenuItemStatistic_BSK.Name = "ToolStripMenuItemStatistic_BSK";
-            ToolStripMenuItemStatistic_BSK.Size = new Size(224, 28);
+            ToolStripMenuItemStatistic_BSK.Size = new Size(180, 28);
             ToolStripMenuItemStatistic_BSK.Text = "Статистика";
             ToolStripMenuItemStatistic_BSK.Click += ToolStripMenuItemStatistic_BSK_Click;
             // 
             // ToolStripMenuItemChart_BSK
             // 
             ToolStripMenuItemChart_BSK.Name = "ToolStripMenuItemChart_BSK";
-            ToolStripMenuItemChart_BSK.Size = new Size(224, 28);
+            ToolStripMenuItemChart_BSK.Size = new Size(180, 28);
             ToolStripMenuItemChart_BSK.Text = "График";
             ToolStripMenuItemChart_BSK.Click += ToolStripMenuItemChart_BSK_Click;
             // 
@@ -201,14 +201,15 @@
             // ToolStripMenuItemAboutProgram_BSK
             // 
             ToolStripMenuItemAboutProgram_BSK.Name = "ToolStripMenuItemAboutProgram_BSK";
-            ToolStripMenuItemAboutProgram_BSK.Size = new Size(201, 28);
+            ToolStripMenuItemAboutProgram_BSK.Size = new Size(224, 28);
             ToolStripMenuItemAboutProgram_BSK.Text = "О программе";
             // 
             // ToolStripMenuItemManual_BSK
             // 
             ToolStripMenuItemManual_BSK.Name = "ToolStripMenuItemManual_BSK";
-            ToolStripMenuItemManual_BSK.Size = new Size(201, 28);
+            ToolStripMenuItemManual_BSK.Size = new Size(224, 28);
             ToolStripMenuItemManual_BSK.Text = "Руководство";
+            ToolStripMenuItemManual_BSK.Click += ToolStripMenuItemManual_BSK_Click;
             // 
             // panelStatus_BSK
             // 

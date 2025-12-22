@@ -39,7 +39,7 @@
             // 
             // buttonClose_BSK
             // 
-            buttonClose_BSK.BackColor = Color.LightSkyBlue;
+            buttonClose_BSK.BackColor = Color.LightCoral;
             buttonClose_BSK.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
             buttonClose_BSK.FlatAppearance.BorderSize = 2;
             buttonClose_BSK.FlatStyle = FlatStyle.Flat;
@@ -47,7 +47,7 @@
             buttonClose_BSK.Name = "buttonClose_BSK";
             buttonClose_BSK.Size = new Size(123, 35);
             buttonClose_BSK.TabIndex = 5;
-            buttonClose_BSK.Text = "ОК";
+            buttonClose_BSK.Text = "Закрыть";
             buttonClose_BSK.UseVisualStyleBackColor = false;
             buttonClose_BSK.Click += buttonClose_BSK_Click;
             // 
