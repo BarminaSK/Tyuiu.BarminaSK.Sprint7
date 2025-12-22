@@ -433,5 +433,71 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
         {
             ResetAllFilters();
         }
+
+        private void buttonSearch_BSK_Click_1(object sender, EventArgs e)
+        {
+            SearchCountries();
+        }
+        private void SearchCountries()
+        {
+            try
+            {
+                string searchText = textBoxSearch_BSK.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(searchText))
+                {
+                    dataGridViewCountries_BSK.DataSource = null;
+                    dataGridViewCountries_BSK.DataSource = countries;
+                    UpdateStatistics();
+                    MessageBox.Show("Показаны все страны", "Поиск");
+                    return;
+                }
+
+                List<Country_BSK> searchResult = dataService.SearchByName(countries, searchText);
+
+                dataGridViewCountries_BSK.DataSource = null;
+                dataGridViewCountries_BSK.DataSource = searchResult;
+
+                UpdateStatisticsForFiltered(searchResult);
+
+                if (searchResult.Count == 0)
+                {
+                    MessageBox.Show($"Страны с названием '{searchText}' не найдены", "Результат поиска");
+                }
+                else
+                {
+                    MessageBox.Show($"Найдено {searchResult.Count} стран по запросу '{searchText}'",
+                        "Результат поиска");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при поиске: {ex.Message}", "Ошибка");
+            }
+        }
+
+        private void ToolStripMenuItemChart_BSK_Click(object sender, EventArgs e)
+        {
+            ShowChartForm();
+        }
+
+        private void buttonShowChart_BSK_Click(object sender, EventArgs e)
+        {
+            ShowChartForm();
+        }
+        private void ShowChartForm()
+        {
+            {
+                if (countries == null || countries.Count == 0)
+                {
+                    MessageBox.Show("Загрузите данные о странах сначала!",
+                        "Нет данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                FormChart_BSK chartForm = new FormChart_BSK(countries);
+                chartForm.Show();
+            }
+        }
     }
 }

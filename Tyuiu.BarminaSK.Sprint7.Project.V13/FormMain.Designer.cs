@@ -48,15 +48,17 @@
             statusStripMain_BSK = new StatusStrip();
             panelToolBar_BSK = new Panel();
             buttonStatistic_BSK = new Button();
-            buttonSearch_BSK = new Button();
             buttonShowChart_BSK = new Button();
             buttonEditCountry_BSK = new Button();
             buttonDeleteCountry_BSK = new Button();
             buttonAddCountry_BSK = new Button();
             buttonSaveFile_BSK = new Button();
             buttonOpenFile_BSK = new Button();
+            buttonSearch_BSK = new Button();
             toolTipMain_BSK = new ToolTip(components);
             panelInstruments_BSK = new Panel();
+            textBoxSearch_BSK = new TextBox();
+            labelSearch_BSK = new Label();
             labelIsDeveloped_BSK = new Label();
             textBoxPopTo_BSK = new TextBox();
             labelPopTo_BSK = new Label();
@@ -177,15 +179,16 @@
             // ToolStripMenuItemStatistic_BSK
             // 
             ToolStripMenuItemStatistic_BSK.Name = "ToolStripMenuItemStatistic_BSK";
-            ToolStripMenuItemStatistic_BSK.Size = new Size(180, 28);
+            ToolStripMenuItemStatistic_BSK.Size = new Size(224, 28);
             ToolStripMenuItemStatistic_BSK.Text = "Статистика";
             ToolStripMenuItemStatistic_BSK.Click += ToolStripMenuItemStatistic_BSK_Click;
             // 
             // ToolStripMenuItemChart_BSK
             // 
             ToolStripMenuItemChart_BSK.Name = "ToolStripMenuItemChart_BSK";
-            ToolStripMenuItemChart_BSK.Size = new Size(180, 28);
+            ToolStripMenuItemChart_BSK.Size = new Size(224, 28);
             ToolStripMenuItemChart_BSK.Text = "График";
+            ToolStripMenuItemChart_BSK.Click += ToolStripMenuItemChart_BSK_Click;
             // 
             // ToolStripMenuItemHelp_BSK
             // 
@@ -229,7 +232,6 @@
             // 
             panelToolBar_BSK.AutoSize = true;
             panelToolBar_BSK.Controls.Add(buttonStatistic_BSK);
-            panelToolBar_BSK.Controls.Add(buttonSearch_BSK);
             panelToolBar_BSK.Controls.Add(buttonShowChart_BSK);
             panelToolBar_BSK.Controls.Add(buttonEditCountry_BSK);
             panelToolBar_BSK.Controls.Add(buttonDeleteCountry_BSK);
@@ -256,31 +258,19 @@
             buttonStatistic_BSK.UseVisualStyleBackColor = true;
             buttonStatistic_BSK.Click += buttonStatistic_BSK_Click;
             // 
-            // buttonSearch_BSK
-            // 
-            buttonSearch_BSK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonSearch_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            buttonSearch_BSK.FlatAppearance.BorderSize = 2;
-            buttonSearch_BSK.FlatStyle = FlatStyle.Flat;
-            buttonSearch_BSK.Image = Properties.Resources.Search;
-            buttonSearch_BSK.Location = new Point(944, 6);
-            buttonSearch_BSK.Name = "buttonSearch_BSK";
-            buttonSearch_BSK.Size = new Size(78, 74);
-            buttonSearch_BSK.TabIndex = 6;
-            buttonSearch_BSK.UseVisualStyleBackColor = true;
-            // 
             // buttonShowChart_BSK
             // 
             buttonShowChart_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
             buttonShowChart_BSK.FlatAppearance.BorderSize = 2;
             buttonShowChart_BSK.FlatStyle = FlatStyle.Flat;
             buttonShowChart_BSK.Image = Properties.Resources.Chart;
-            buttonShowChart_BSK.Location = new Point(440, 3);
+            buttonShowChart_BSK.Location = new Point(943, 6);
             buttonShowChart_BSK.Name = "buttonShowChart_BSK";
             buttonShowChart_BSK.Size = new Size(79, 74);
             buttonShowChart_BSK.TabIndex = 5;
             toolTipMain_BSK.SetToolTip(buttonShowChart_BSK, "Построить график");
             buttonShowChart_BSK.UseVisualStyleBackColor = true;
+            buttonShowChart_BSK.Click += buttonShowChart_BSK_Click;
             // 
             // buttonEditCountry_BSK
             // 
@@ -352,6 +342,20 @@
             buttonOpenFile_BSK.UseVisualStyleBackColor = true;
             buttonOpenFile_BSK.Click += buttonOpenFile_BSK_Click;
             // 
+            // buttonSearch_BSK
+            // 
+            buttonSearch_BSK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSearch_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            buttonSearch_BSK.FlatAppearance.BorderSize = 2;
+            buttonSearch_BSK.FlatStyle = FlatStyle.Flat;
+            buttonSearch_BSK.Image = Properties.Resources.Search;
+            buttonSearch_BSK.Location = new Point(1028, 9);
+            buttonSearch_BSK.Name = "buttonSearch_BSK";
+            buttonSearch_BSK.Size = new Size(78, 74);
+            buttonSearch_BSK.TabIndex = 6;
+            buttonSearch_BSK.UseVisualStyleBackColor = true;
+            buttonSearch_BSK.Click += buttonSearch_BSK_Click_1;
+            // 
             // toolTipMain_BSK
             // 
             toolTipMain_BSK.IsBalloon = true;
@@ -359,7 +363,10 @@
             // 
             // panelInstruments_BSK
             // 
+            panelInstruments_BSK.Controls.Add(textBoxSearch_BSK);
+            panelInstruments_BSK.Controls.Add(labelSearch_BSK);
             panelInstruments_BSK.Controls.Add(labelIsDeveloped_BSK);
+            panelInstruments_BSK.Controls.Add(buttonSearch_BSK);
             panelInstruments_BSK.Controls.Add(textBoxPopTo_BSK);
             panelInstruments_BSK.Controls.Add(labelPopTo_BSK);
             panelInstruments_BSK.Controls.Add(labelPopFrom_BSK);
@@ -373,19 +380,36 @@
             panelInstruments_BSK.Size = new Size(1118, 104);
             panelInstruments_BSK.TabIndex = 5;
             // 
+            // textBoxSearch_BSK
+            // 
+            textBoxSearch_BSK.Location = new Point(773, 54);
+            textBoxSearch_BSK.Name = "textBoxSearch_BSK";
+            textBoxSearch_BSK.Size = new Size(217, 29);
+            textBoxSearch_BSK.TabIndex = 9;
+            // 
+            // labelSearch_BSK
+            // 
+            labelSearch_BSK.AutoSize = true;
+            labelSearch_BSK.Font = new Font("Segoe UI", 9.7F);
+            labelSearch_BSK.Location = new Point(773, 17);
+            labelSearch_BSK.Name = "labelSearch_BSK";
+            labelSearch_BSK.Size = new Size(217, 23);
+            labelSearch_BSK.TabIndex = 8;
+            labelSearch_BSK.Text = "Введите название страны:";
+            // 
             // labelIsDeveloped_BSK
             // 
             labelIsDeveloped_BSK.AutoSize = true;
             labelIsDeveloped_BSK.Font = new Font("Segoe UI", 9.7F);
-            labelIsDeveloped_BSK.Location = new Point(315, 20);
+            labelIsDeveloped_BSK.Location = new Point(297, 20);
             labelIsDeveloped_BSK.Name = "labelIsDeveloped_BSK";
-            labelIsDeveloped_BSK.Size = new Size(88, 23);
+            labelIsDeveloped_BSK.Size = new Size(101, 23);
             labelIsDeveloped_BSK.TabIndex = 7;
-            labelIsDeveloped_BSK.Text = "Развитые:";
+            labelIsDeveloped_BSK.Text = "Развитость:";
             // 
             // textBoxPopTo_BSK
             // 
-            textBoxPopTo_BSK.Location = new Point(139, 62);
+            textBoxPopTo_BSK.Location = new Point(151, 62);
             textBoxPopTo_BSK.Name = "textBoxPopTo_BSK";
             textBoxPopTo_BSK.Size = new Size(125, 29);
             textBoxPopTo_BSK.TabIndex = 6;
@@ -417,7 +441,7 @@
             buttonResetFilter_BSK.FlatAppearance.BorderSize = 2;
             buttonResetFilter_BSK.FlatStyle = FlatStyle.Flat;
             buttonResetFilter_BSK.Font = new Font("Segoe UI", 9.7F);
-            buttonResetFilter_BSK.Location = new Point(930, 54);
+            buttonResetFilter_BSK.Location = new Point(562, 57);
             buttonResetFilter_BSK.Name = "buttonResetFilter_BSK";
             buttonResetFilter_BSK.Size = new Size(176, 42);
             buttonResetFilter_BSK.TabIndex = 3;
@@ -432,7 +456,7 @@
             buttonApplyFilter_BSK.FlatAppearance.BorderSize = 2;
             buttonApplyFilter_BSK.FlatStyle = FlatStyle.Flat;
             buttonApplyFilter_BSK.Font = new Font("Segoe UI", 9.7F);
-            buttonApplyFilter_BSK.Location = new Point(930, 6);
+            buttonApplyFilter_BSK.Location = new Point(562, 9);
             buttonApplyFilter_BSK.Name = "buttonApplyFilter_BSK";
             buttonApplyFilter_BSK.Size = new Size(176, 42);
             buttonApplyFilter_BSK.TabIndex = 2;
@@ -445,14 +469,14 @@
             comboBoxIsDeveloped_BSK.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIsDeveloped_BSK.FormattingEnabled = true;
             comboBoxIsDeveloped_BSK.Items.AddRange(new object[] { "Все страны", "Развитые", "Неразвитые" });
-            comboBoxIsDeveloped_BSK.Location = new Point(409, 20);
+            comboBoxIsDeveloped_BSK.Location = new Point(419, 17);
             comboBoxIsDeveloped_BSK.Name = "comboBoxIsDeveloped_BSK";
             comboBoxIsDeveloped_BSK.Size = new Size(109, 29);
             comboBoxIsDeveloped_BSK.TabIndex = 1;
             // 
             // textBoxPopFrom_BSK
             // 
-            textBoxPopFrom_BSK.Location = new Point(139, 17);
+            textBoxPopFrom_BSK.Location = new Point(151, 17);
             textBoxPopFrom_BSK.Name = "textBoxPopFrom_BSK";
             textBoxPopFrom_BSK.Size = new Size(125, 29);
             textBoxPopFrom_BSK.TabIndex = 0;
@@ -741,5 +765,7 @@
         private Label labelPopTo_BSK;
         private Label labelPopFrom_BSK;
         private Label labelIsDeveloped_BSK;
+        private TextBox textBoxSearch_BSK;
+        private Label labelSearch_BSK;
     }
 }
