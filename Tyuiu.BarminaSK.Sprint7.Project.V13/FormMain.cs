@@ -212,6 +212,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                 dataGridViewCountries_BSK.DataSource = countries;
 
                 MessageBox.Show($"Добавлена страна: {newCountry.Name}", "Успешно");
+
             }
         }
 
@@ -223,6 +224,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
         private void buttonDeleteCountry_BSK_Click(object sender, EventArgs e)
         {
             DeleteCountry();
+
         }
 
         private void DeleteCountry()
@@ -296,6 +298,140 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                     MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
                 }
             }
+        }
+
+        private void ToolStripMenuItemStatistic_BSK_Click(object sender, EventArgs e)
+        {
+            UpdateStatistics();
+            MessageBox.Show("Статистика обновлена!");
+        }
+
+        private void buttonStatistic_BSK_Click(object sender, EventArgs e)
+        {
+            UpdateStatistics();
+            MessageBox.Show("Статистика обновлена!");
+        }
+        private void UpdateStatistics()
+        {
+            if (countries.Count == 0)
+            {
+                return;
+            }
+
+            DataService_BSK service = new DataService_BSK();
+
+            textBoxCount_BSK.Text = service.GetCount(countries).ToString();
+            textBoxTotalPopulation_BSK.Text = service.GetTotalPopulation(countries).ToString("N0");
+            textBoxAvgArea_BSK.Text = service.GetAverageArea(countries).ToString("N2") + " км²";
+            textBoxMaxArea_BSK.Text = service.GetMaxArea(countries).ToString("N0") + " км²";
+            textBoxMinArea_BSK.Text = service.GetMinArea(countries).ToString("N0") + " км²";
+            textBoxMaxPopulation_BSK.Text = service.GetMaxPopulation(countries).ToString("N0");
+            textBoxMinPopulation_BSK.Text = service.GetMinPopulation(countries).ToString("N0");
+        }
+
+        private void buttonApplyFilter_BSK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string developedFilter = comboBoxIsDeveloped_BSK.Text;
+
+                long minPopulation = 0;
+                long maxPopulation = long.MaxValue;
+
+                if (!string.IsNullOrWhiteSpace(textBoxPopFrom_BSK.Text))
+                    minPopulation = long.Parse(textBoxPopFrom_BSK.Text);
+
+                if (!string.IsNullOrWhiteSpace(textBoxPopTo_BSK.Text))
+                    maxPopulation = long.Parse(textBoxPopTo_BSK.Text);
+
+                List<Country_BSK> filteredList = countries;
+
+                if (developedFilter == "Развитые")
+                {
+                    filteredList = dataService.FilterByDeveloped(filteredList, true);
+                }
+                else if (developedFilter == "Неразвитые")
+                {
+                    filteredList = dataService.FilterByDeveloped(filteredList, false);
+                }
+
+                if (minPopulation > 0 || maxPopulation < long.MaxValue)
+                {
+                    filteredList = dataService.FilterByPopulationRange(
+                        filteredList, minPopulation, maxPopulation);
+                }
+
+                dataGridViewCountries_BSK.DataSource = null;
+                dataGridViewCountries_BSK.DataSource = filteredList;
+
+                UpdateStatisticsForFiltered(filteredList);
+
+                if (filteredList.Count == 0)
+                {
+                    MessageBox.Show("Нет стран, соответствующих фильтрам", "Результат");
+                }
+                else
+                {
+                    MessageBox.Show($"Найдено {filteredList.Count} стран", "Результат фильтрации");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введите корректные числа в поля населения", "Ошибка ввода");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка фильтрации");
+            }
+        }
+        private void UpdateStatisticsForFiltered(List<Country_BSK> filteredCountries)
+        {
+            if (filteredCountries.Count == 0)
+            {
+                ClearStatistics();
+                return;
+            }
+
+            DataService_BSK service = new DataService_BSK();
+
+            textBoxCount_BSK.Text = service.GetCount(filteredCountries).ToString();
+            textBoxTotalPopulation_BSK.Text = service.GetTotalPopulation(filteredCountries).ToString("N0");
+            textBoxAvgArea_BSK.Text = service.GetAverageArea(filteredCountries).ToString("N2") + " км²";
+            textBoxMaxArea_BSK.Text = service.GetMaxArea(filteredCountries).ToString("N0") + " км²";
+            textBoxMinArea_BSK.Text = service.GetMinArea(filteredCountries).ToString("N0") + " км²";
+            textBoxMaxPopulation_BSK.Text = service.GetMaxPopulation(filteredCountries).ToString("N0");
+            textBoxMinPopulation_BSK.Text = service.GetMinPopulation(filteredCountries).ToString("N0");
+        }
+
+        private void ClearStatistics()
+        {
+            textBoxCount_BSK.Text = "0";
+            textBoxTotalPopulation_BSK.Text = "0";
+            textBoxAvgArea_BSK.Text = "0 км²";
+            textBoxMaxArea_BSK.Text = "0 км²";
+            textBoxMinArea_BSK.Text = "0 км²";
+            textBoxMaxPopulation_BSK.Text = "0";
+            textBoxMinPopulation_BSK.Text = "0";
+        }
+
+        private void ResetAllFilters()
+        {
+            comboBoxIsDeveloped_BSK.SelectedIndex = 0;
+            textBoxPopFrom_BSK.Text = "";
+            textBoxPopTo_BSK.Text = "";
+
+            dataGridViewCountries_BSK.DataSource = null;
+            dataGridViewCountries_BSK.DataSource = countries;
+
+            UpdateStatistics();
+
+            MessageBox.Show("Все фильтры сброшены. Показаны все страны.", "Сброс фильтров");
+        }
+
+        private void buttonResetFilter_BSK_Click(object sender, EventArgs e)
+        {
+            ResetAllFilters();
         }
     }
 }

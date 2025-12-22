@@ -136,6 +136,30 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13.Lib
 
             return min;
         }
+        public long GetMaxPopulation(List<Country_BSK> countries)
+        {
+            if (countries.Count == 0) return 0;
+
+            long max = countries[0].Population;
+            foreach (var country in countries)
+            {
+                if (country.Population > max)
+                    max = country.Population;
+            }
+            return max;
+        }
+        public long GetMinPopulation(List<Country_BSK> countries)
+        {
+            if (countries.Count == 0) return 0;
+
+            long min = countries[0].Population;
+            foreach (var country in countries)
+            {
+                if (country.Population < min)
+                    min = country.Population;
+            }
+            return min;
+        }
         public List<Country_BSK> SearchByName(List<Country_BSK> countries, string searchText)
         {
             List<Country_BSK> result = new List<Country_BSK>();

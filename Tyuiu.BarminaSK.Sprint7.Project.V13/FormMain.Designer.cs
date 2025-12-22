@@ -41,7 +41,6 @@
             ToolStripMenuItemView_BSK = new ToolStripMenuItem();
             ToolStripMenuItemStatistic_BSK = new ToolStripMenuItem();
             ToolStripMenuItemChart_BSK = new ToolStripMenuItem();
-            ToolStripMenuItemResetFilters_BSK = new ToolStripMenuItem();
             ToolStripMenuItemHelp_BSK = new ToolStripMenuItem();
             ToolStripMenuItemAboutProgram_BSK = new ToolStripMenuItem();
             ToolStripMenuItemManual_BSK = new ToolStripMenuItem();
@@ -58,15 +57,28 @@
             buttonOpenFile_BSK = new Button();
             toolTipMain_BSK = new ToolTip(components);
             panelInstruments_BSK = new Panel();
+            labelIsDeveloped_BSK = new Label();
+            textBoxPopTo_BSK = new TextBox();
+            labelPopTo_BSK = new Label();
+            labelPopFrom_BSK = new Label();
             buttonResetFilter_BSK = new Button();
             buttonApplyFilter_BSK = new Button();
-            comboBoxFilter_BSK = new ComboBox();
-            textBoxSearch_BSK = new TextBox();
+            comboBoxIsDeveloped_BSK = new ComboBox();
+            textBoxPopFrom_BSK = new TextBox();
             panelCountries_BSK = new Panel();
             splitContainer1 = new SplitContainer();
             groupBoxCountries_BSK = new GroupBox();
             dataGridViewCountries_BSK = new DataGridView();
             groupBoxStatistics_BSK = new GroupBox();
+            textBoxMinArea_BSK = new TextBox();
+            textBoxMaxArea_BSK = new TextBox();
+            textBoxAvgArea_BSK = new TextBox();
+            textBoxMinPopulation_BSK = new TextBox();
+            textBoxMaxPopulation_BSK = new TextBox();
+            textBoxTotalPopulation_BSK = new TextBox();
+            textBoxCount_BSK = new TextBox();
+            labelMaxArea_BSK = new Label();
+            labelMinPopulation_BSK = new Label();
             labelMinArea_BSK = new Label();
             labelMaxPopulation_BSK = new Label();
             labelAvgArea_BSK = new Label();
@@ -92,117 +104,116 @@
             menuStripMain_BSK.Items.AddRange(new ToolStripItem[] { ToolStripMenuItemFile_BSK, ToolStripMenuItemEditing_BSK, ToolStripMenuItemView_BSK, ToolStripMenuItemHelp_BSK });
             menuStripMain_BSK.Location = new Point(0, 0);
             menuStripMain_BSK.Name = "menuStripMain_BSK";
-            menuStripMain_BSK.Size = new Size(1182, 29);
+            menuStripMain_BSK.Size = new Size(1118, 31);
             menuStripMain_BSK.TabIndex = 0;
             menuStripMain_BSK.Text = "menuStrip1";
             // 
             // ToolStripMenuItemFile_BSK
             // 
             ToolStripMenuItemFile_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemOpen_BSK, ToolStripMenuItemSave_BSK, ToolStripMenuItemExit_BSK });
+            ToolStripMenuItemFile_BSK.Font = new Font("Segoe UI", 9.7F);
             ToolStripMenuItemFile_BSK.Name = "ToolStripMenuItemFile_BSK";
-            ToolStripMenuItemFile_BSK.Size = new Size(61, 25);
+            ToolStripMenuItemFile_BSK.Size = new Size(64, 27);
             ToolStripMenuItemFile_BSK.Text = "Файл";
             // 
             // ToolStripMenuItemOpen_BSK
             // 
             ToolStripMenuItemOpen_BSK.Name = "ToolStripMenuItemOpen_BSK";
-            ToolStripMenuItemOpen_BSK.Size = new Size(170, 26);
+            ToolStripMenuItemOpen_BSK.Size = new Size(178, 28);
             ToolStripMenuItemOpen_BSK.Text = "Открыть";
             ToolStripMenuItemOpen_BSK.Click += ToolStripMenuItemOpen_BSK_Click;
             // 
             // ToolStripMenuItemSave_BSK
             // 
             ToolStripMenuItemSave_BSK.Name = "ToolStripMenuItemSave_BSK";
-            ToolStripMenuItemSave_BSK.Size = new Size(170, 26);
+            ToolStripMenuItemSave_BSK.Size = new Size(178, 28);
             ToolStripMenuItemSave_BSK.Text = "Сохранить";
             ToolStripMenuItemSave_BSK.Click += ToolStripMenuItemSave_BSK_Click;
             // 
             // ToolStripMenuItemExit_BSK
             // 
             ToolStripMenuItemExit_BSK.Name = "ToolStripMenuItemExit_BSK";
-            ToolStripMenuItemExit_BSK.Size = new Size(170, 26);
+            ToolStripMenuItemExit_BSK.Size = new Size(178, 28);
             ToolStripMenuItemExit_BSK.Text = "Выход";
             ToolStripMenuItemExit_BSK.Click += ToolStripMenuItemExit_BSK_Click;
             // 
             // ToolStripMenuItemEditing_BSK
             // 
             ToolStripMenuItemEditing_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemAdd_BSK, ToolStripMenuItemDelete_BSK, ToolStripMenuItemEdit_BSK });
+            ToolStripMenuItemEditing_BSK.Font = new Font("Segoe UI", 9.7F);
             ToolStripMenuItemEditing_BSK.Name = "ToolStripMenuItemEditing_BSK";
-            ToolStripMenuItemEditing_BSK.Size = new Size(142, 25);
+            ToolStripMenuItemEditing_BSK.Size = new Size(153, 27);
             ToolStripMenuItemEditing_BSK.Text = "Редактирование";
             // 
             // ToolStripMenuItemAdd_BSK
             // 
             ToolStripMenuItemAdd_BSK.Name = "ToolStripMenuItemAdd_BSK";
-            ToolStripMenuItemAdd_BSK.Size = new Size(224, 26);
+            ToolStripMenuItemAdd_BSK.Size = new Size(172, 28);
             ToolStripMenuItemAdd_BSK.Text = "Добавить";
             ToolStripMenuItemAdd_BSK.Click += ToolStripMenuItemAdd_BSK_Click;
             // 
             // ToolStripMenuItemDelete_BSK
             // 
             ToolStripMenuItemDelete_BSK.Name = "ToolStripMenuItemDelete_BSK";
-            ToolStripMenuItemDelete_BSK.Size = new Size(224, 26);
+            ToolStripMenuItemDelete_BSK.Size = new Size(172, 28);
             ToolStripMenuItemDelete_BSK.Text = "Удалить";
             ToolStripMenuItemDelete_BSK.Click += ToolStripMenuItemDelete_BSK_Click;
             // 
             // ToolStripMenuItemEdit_BSK
             // 
             ToolStripMenuItemEdit_BSK.Name = "ToolStripMenuItemEdit_BSK";
-            ToolStripMenuItemEdit_BSK.Size = new Size(224, 26);
+            ToolStripMenuItemEdit_BSK.Size = new Size(172, 28);
             ToolStripMenuItemEdit_BSK.Text = "Изменить";
             ToolStripMenuItemEdit_BSK.Click += ToolStripMenuItemEdit_BSK_Click;
             // 
             // ToolStripMenuItemView_BSK
             // 
-            ToolStripMenuItemView_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemStatistic_BSK, ToolStripMenuItemChart_BSK, ToolStripMenuItemResetFilters_BSK });
+            ToolStripMenuItemView_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemStatistic_BSK, ToolStripMenuItemChart_BSK });
+            ToolStripMenuItemView_BSK.Font = new Font("Segoe UI", 9.7F);
             ToolStripMenuItemView_BSK.Name = "ToolStripMenuItemView_BSK";
-            ToolStripMenuItemView_BSK.Size = new Size(51, 25);
+            ToolStripMenuItemView_BSK.Size = new Size(53, 27);
             ToolStripMenuItemView_BSK.Text = "Вид";
             // 
             // ToolStripMenuItemStatistic_BSK
             // 
             ToolStripMenuItemStatistic_BSK.Name = "ToolStripMenuItemStatistic_BSK";
-            ToolStripMenuItemStatistic_BSK.Size = new Size(229, 26);
+            ToolStripMenuItemStatistic_BSK.Size = new Size(180, 28);
             ToolStripMenuItemStatistic_BSK.Text = "Статистика";
+            ToolStripMenuItemStatistic_BSK.Click += ToolStripMenuItemStatistic_BSK_Click;
             // 
             // ToolStripMenuItemChart_BSK
             // 
             ToolStripMenuItemChart_BSK.Name = "ToolStripMenuItemChart_BSK";
-            ToolStripMenuItemChart_BSK.Size = new Size(229, 26);
+            ToolStripMenuItemChart_BSK.Size = new Size(180, 28);
             ToolStripMenuItemChart_BSK.Text = "График";
-            // 
-            // ToolStripMenuItemResetFilters_BSK
-            // 
-            ToolStripMenuItemResetFilters_BSK.Name = "ToolStripMenuItemResetFilters_BSK";
-            ToolStripMenuItemResetFilters_BSK.Size = new Size(229, 26);
-            ToolStripMenuItemResetFilters_BSK.Text = "Сбросить фильтры";
             // 
             // ToolStripMenuItemHelp_BSK
             // 
             ToolStripMenuItemHelp_BSK.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemAboutProgram_BSK, ToolStripMenuItemManual_BSK });
+            ToolStripMenuItemHelp_BSK.Font = new Font("Segoe UI", 9.7F);
             ToolStripMenuItemHelp_BSK.Name = "ToolStripMenuItemHelp_BSK";
-            ToolStripMenuItemHelp_BSK.Size = new Size(84, 25);
+            ToolStripMenuItemHelp_BSK.Size = new Size(90, 27);
             ToolStripMenuItemHelp_BSK.Text = "Справка";
             // 
             // ToolStripMenuItemAboutProgram_BSK
             // 
             ToolStripMenuItemAboutProgram_BSK.Name = "ToolStripMenuItemAboutProgram_BSK";
-            ToolStripMenuItemAboutProgram_BSK.Size = new Size(190, 26);
+            ToolStripMenuItemAboutProgram_BSK.Size = new Size(201, 28);
             ToolStripMenuItemAboutProgram_BSK.Text = "О программе";
             // 
             // ToolStripMenuItemManual_BSK
             // 
             ToolStripMenuItemManual_BSK.Name = "ToolStripMenuItemManual_BSK";
-            ToolStripMenuItemManual_BSK.Size = new Size(190, 26);
+            ToolStripMenuItemManual_BSK.Size = new Size(201, 28);
             ToolStripMenuItemManual_BSK.Text = "Руководство";
             // 
             // panelStatus_BSK
             // 
             panelStatus_BSK.Controls.Add(statusStripMain_BSK);
             panelStatus_BSK.Dock = DockStyle.Bottom;
-            panelStatus_BSK.Location = new Point(0, 696);
+            panelStatus_BSK.Location = new Point(0, 763);
             panelStatus_BSK.Name = "panelStatus_BSK";
-            panelStatus_BSK.Size = new Size(1182, 22);
+            panelStatus_BSK.Size = new Size(1118, 22);
             panelStatus_BSK.TabIndex = 0;
             // 
             // statusStripMain_BSK
@@ -210,7 +221,7 @@
             statusStripMain_BSK.ImageScalingSize = new Size(20, 20);
             statusStripMain_BSK.Location = new Point(0, 0);
             statusStripMain_BSK.Name = "statusStripMain_BSK";
-            statusStripMain_BSK.Size = new Size(1182, 22);
+            statusStripMain_BSK.Size = new Size(1118, 22);
             statusStripMain_BSK.TabIndex = 0;
             statusStripMain_BSK.Text = "statusStrip1";
             // 
@@ -226,9 +237,9 @@
             panelToolBar_BSK.Controls.Add(buttonSaveFile_BSK);
             panelToolBar_BSK.Controls.Add(buttonOpenFile_BSK);
             panelToolBar_BSK.Dock = DockStyle.Top;
-            panelToolBar_BSK.Location = new Point(0, 29);
+            panelToolBar_BSK.Location = new Point(0, 31);
             panelToolBar_BSK.Name = "panelToolBar_BSK";
-            panelToolBar_BSK.Size = new Size(1182, 83);
+            panelToolBar_BSK.Size = new Size(1118, 83);
             panelToolBar_BSK.TabIndex = 4;
             // 
             // buttonStatistic_BSK
@@ -238,11 +249,12 @@
             buttonStatistic_BSK.FlatAppearance.BorderSize = 2;
             buttonStatistic_BSK.FlatStyle = FlatStyle.Flat;
             buttonStatistic_BSK.Image = Properties.Resources.Statistic;
-            buttonStatistic_BSK.Location = new Point(1092, 6);
+            buttonStatistic_BSK.Location = new Point(1028, 6);
             buttonStatistic_BSK.Name = "buttonStatistic_BSK";
             buttonStatistic_BSK.Size = new Size(78, 74);
             buttonStatistic_BSK.TabIndex = 7;
             buttonStatistic_BSK.UseVisualStyleBackColor = true;
+            buttonStatistic_BSK.Click += buttonStatistic_BSK_Click;
             // 
             // buttonSearch_BSK
             // 
@@ -251,7 +263,7 @@
             buttonSearch_BSK.FlatAppearance.BorderSize = 2;
             buttonSearch_BSK.FlatStyle = FlatStyle.Flat;
             buttonSearch_BSK.Image = Properties.Resources.Search;
-            buttonSearch_BSK.Location = new Point(1008, 6);
+            buttonSearch_BSK.Location = new Point(944, 6);
             buttonSearch_BSK.Name = "buttonSearch_BSK";
             buttonSearch_BSK.Size = new Size(78, 74);
             buttonSearch_BSK.TabIndex = 6;
@@ -347,15 +359,56 @@
             // 
             // panelInstruments_BSK
             // 
+            panelInstruments_BSK.Controls.Add(labelIsDeveloped_BSK);
+            panelInstruments_BSK.Controls.Add(textBoxPopTo_BSK);
+            panelInstruments_BSK.Controls.Add(labelPopTo_BSK);
+            panelInstruments_BSK.Controls.Add(labelPopFrom_BSK);
             panelInstruments_BSK.Controls.Add(buttonResetFilter_BSK);
             panelInstruments_BSK.Controls.Add(buttonApplyFilter_BSK);
-            panelInstruments_BSK.Controls.Add(comboBoxFilter_BSK);
-            panelInstruments_BSK.Controls.Add(textBoxSearch_BSK);
+            panelInstruments_BSK.Controls.Add(comboBoxIsDeveloped_BSK);
+            panelInstruments_BSK.Controls.Add(textBoxPopFrom_BSK);
             panelInstruments_BSK.Dock = DockStyle.Top;
-            panelInstruments_BSK.Location = new Point(0, 112);
+            panelInstruments_BSK.Location = new Point(0, 114);
             panelInstruments_BSK.Name = "panelInstruments_BSK";
-            panelInstruments_BSK.Size = new Size(1182, 63);
+            panelInstruments_BSK.Size = new Size(1118, 104);
             panelInstruments_BSK.TabIndex = 5;
+            // 
+            // labelIsDeveloped_BSK
+            // 
+            labelIsDeveloped_BSK.AutoSize = true;
+            labelIsDeveloped_BSK.Font = new Font("Segoe UI", 9.7F);
+            labelIsDeveloped_BSK.Location = new Point(315, 20);
+            labelIsDeveloped_BSK.Name = "labelIsDeveloped_BSK";
+            labelIsDeveloped_BSK.Size = new Size(88, 23);
+            labelIsDeveloped_BSK.TabIndex = 7;
+            labelIsDeveloped_BSK.Text = "Развитые:";
+            // 
+            // textBoxPopTo_BSK
+            // 
+            textBoxPopTo_BSK.Location = new Point(139, 62);
+            textBoxPopTo_BSK.Name = "textBoxPopTo_BSK";
+            textBoxPopTo_BSK.Size = new Size(125, 29);
+            textBoxPopTo_BSK.TabIndex = 6;
+            // 
+            // labelPopTo_BSK
+            // 
+            labelPopTo_BSK.AutoSize = true;
+            labelPopTo_BSK.Font = new Font("Segoe UI", 9.7F);
+            labelPopTo_BSK.Location = new Point(10, 65);
+            labelPopTo_BSK.Name = "labelPopTo_BSK";
+            labelPopTo_BSK.Size = new Size(123, 23);
+            labelPopTo_BSK.TabIndex = 5;
+            labelPopTo_BSK.Text = "Население до:";
+            // 
+            // labelPopFrom_BSK
+            // 
+            labelPopFrom_BSK.AutoSize = true;
+            labelPopFrom_BSK.Font = new Font("Segoe UI", 9.7F);
+            labelPopFrom_BSK.Location = new Point(12, 20);
+            labelPopFrom_BSK.Name = "labelPopFrom_BSK";
+            labelPopFrom_BSK.Size = new Size(121, 23);
+            labelPopFrom_BSK.TabIndex = 4;
+            labelPopFrom_BSK.Text = "Население от:";
             // 
             // buttonResetFilter_BSK
             // 
@@ -363,12 +416,14 @@
             buttonResetFilter_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
             buttonResetFilter_BSK.FlatAppearance.BorderSize = 2;
             buttonResetFilter_BSK.FlatStyle = FlatStyle.Flat;
-            buttonResetFilter_BSK.Location = new Point(1008, 9);
+            buttonResetFilter_BSK.Font = new Font("Segoe UI", 9.7F);
+            buttonResetFilter_BSK.Location = new Point(930, 54);
             buttonResetFilter_BSK.Name = "buttonResetFilter_BSK";
-            buttonResetFilter_BSK.Size = new Size(162, 42);
+            buttonResetFilter_BSK.Size = new Size(176, 42);
             buttonResetFilter_BSK.TabIndex = 3;
             buttonResetFilter_BSK.Text = "Сбросить фильтр";
             buttonResetFilter_BSK.UseVisualStyleBackColor = true;
+            buttonResetFilter_BSK.Click += buttonResetFilter_BSK_Click;
             // 
             // buttonApplyFilter_BSK
             // 
@@ -376,35 +431,39 @@
             buttonApplyFilter_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
             buttonApplyFilter_BSK.FlatAppearance.BorderSize = 2;
             buttonApplyFilter_BSK.FlatStyle = FlatStyle.Flat;
-            buttonApplyFilter_BSK.Location = new Point(830, 9);
+            buttonApplyFilter_BSK.Font = new Font("Segoe UI", 9.7F);
+            buttonApplyFilter_BSK.Location = new Point(930, 6);
             buttonApplyFilter_BSK.Name = "buttonApplyFilter_BSK";
-            buttonApplyFilter_BSK.Size = new Size(172, 42);
+            buttonApplyFilter_BSK.Size = new Size(176, 42);
             buttonApplyFilter_BSK.TabIndex = 2;
             buttonApplyFilter_BSK.Text = "Применить фильтр";
             buttonApplyFilter_BSK.UseVisualStyleBackColor = true;
+            buttonApplyFilter_BSK.Click += buttonApplyFilter_BSK_Click;
             // 
-            // comboBoxFilter_BSK
+            // comboBoxIsDeveloped_BSK
             // 
-            comboBoxFilter_BSK.FormattingEnabled = true;
-            comboBoxFilter_BSK.Location = new Point(126, 17);
-            comboBoxFilter_BSK.Name = "comboBoxFilter_BSK";
-            comboBoxFilter_BSK.Size = new Size(109, 29);
-            comboBoxFilter_BSK.TabIndex = 1;
+            comboBoxIsDeveloped_BSK.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxIsDeveloped_BSK.FormattingEnabled = true;
+            comboBoxIsDeveloped_BSK.Items.AddRange(new object[] { "Все страны", "Развитые", "Неразвитые" });
+            comboBoxIsDeveloped_BSK.Location = new Point(409, 20);
+            comboBoxIsDeveloped_BSK.Name = "comboBoxIsDeveloped_BSK";
+            comboBoxIsDeveloped_BSK.Size = new Size(109, 29);
+            comboBoxIsDeveloped_BSK.TabIndex = 1;
             // 
-            // textBoxSearch_BSK
+            // textBoxPopFrom_BSK
             // 
-            textBoxSearch_BSK.Location = new Point(12, 16);
-            textBoxSearch_BSK.Name = "textBoxSearch_BSK";
-            textBoxSearch_BSK.Size = new Size(108, 29);
-            textBoxSearch_BSK.TabIndex = 0;
+            textBoxPopFrom_BSK.Location = new Point(139, 17);
+            textBoxPopFrom_BSK.Name = "textBoxPopFrom_BSK";
+            textBoxPopFrom_BSK.Size = new Size(125, 29);
+            textBoxPopFrom_BSK.TabIndex = 0;
             // 
             // panelCountries_BSK
             // 
             panelCountries_BSK.Controls.Add(splitContainer1);
             panelCountries_BSK.Dock = DockStyle.Fill;
-            panelCountries_BSK.Location = new Point(0, 175);
+            panelCountries_BSK.Location = new Point(0, 218);
             panelCountries_BSK.Name = "panelCountries_BSK";
-            panelCountries_BSK.Size = new Size(1182, 521);
+            panelCountries_BSK.Size = new Size(1118, 545);
             panelCountries_BSK.TabIndex = 6;
             // 
             // splitContainer1
@@ -420,17 +479,18 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(groupBoxStatistics_BSK);
-            splitContainer1.Size = new Size(1182, 521);
-            splitContainer1.SplitterDistance = 828;
+            splitContainer1.Size = new Size(1118, 545);
+            splitContainer1.SplitterDistance = 783;
             splitContainer1.TabIndex = 0;
             // 
             // groupBoxCountries_BSK
             // 
             groupBoxCountries_BSK.Controls.Add(dataGridViewCountries_BSK);
             groupBoxCountries_BSK.Dock = DockStyle.Fill;
+            groupBoxCountries_BSK.Font = new Font("Segoe UI", 9.7F);
             groupBoxCountries_BSK.Location = new Point(0, 0);
             groupBoxCountries_BSK.Name = "groupBoxCountries_BSK";
-            groupBoxCountries_BSK.Size = new Size(828, 521);
+            groupBoxCountries_BSK.Size = new Size(783, 545);
             groupBoxCountries_BSK.TabIndex = 0;
             groupBoxCountries_BSK.TabStop = false;
             groupBoxCountries_BSK.Text = "Страны ";
@@ -445,49 +505,126 @@
             dataGridViewCountries_BSK.RowHeadersVisible = false;
             dataGridViewCountries_BSK.RowHeadersWidth = 51;
             dataGridViewCountries_BSK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCountries_BSK.Size = new Size(822, 493);
+            dataGridViewCountries_BSK.Size = new Size(777, 517);
             dataGridViewCountries_BSK.TabIndex = 0;
             dataGridViewCountries_BSK.CellContentClick += dataGridViewCountries_BSK_CellContentClick;
             // 
             // groupBoxStatistics_BSK
             // 
+            groupBoxStatistics_BSK.Controls.Add(textBoxMinArea_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxMaxArea_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxAvgArea_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxMinPopulation_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxMaxPopulation_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxTotalPopulation_BSK);
+            groupBoxStatistics_BSK.Controls.Add(textBoxCount_BSK);
+            groupBoxStatistics_BSK.Controls.Add(labelMaxArea_BSK);
+            groupBoxStatistics_BSK.Controls.Add(labelMinPopulation_BSK);
             groupBoxStatistics_BSK.Controls.Add(labelMinArea_BSK);
             groupBoxStatistics_BSK.Controls.Add(labelMaxPopulation_BSK);
             groupBoxStatistics_BSK.Controls.Add(labelAvgArea_BSK);
             groupBoxStatistics_BSK.Controls.Add(labelTotalPopulation_BSK);
             groupBoxStatistics_BSK.Controls.Add(labelCount_BSK);
             groupBoxStatistics_BSK.Dock = DockStyle.Fill;
+            groupBoxStatistics_BSK.Font = new Font("Segoe UI", 9.7F);
             groupBoxStatistics_BSK.Location = new Point(0, 0);
             groupBoxStatistics_BSK.Name = "groupBoxStatistics_BSK";
-            groupBoxStatistics_BSK.Size = new Size(350, 521);
+            groupBoxStatistics_BSK.Size = new Size(331, 545);
             groupBoxStatistics_BSK.TabIndex = 0;
             groupBoxStatistics_BSK.TabStop = false;
             groupBoxStatistics_BSK.Text = "Статистика";
             // 
+            // textBoxMinArea_BSK
+            // 
+            textBoxMinArea_BSK.Location = new Point(197, 342);
+            textBoxMinArea_BSK.Name = "textBoxMinArea_BSK";
+            textBoxMinArea_BSK.Size = new Size(125, 29);
+            textBoxMinArea_BSK.TabIndex = 13;
+            // 
+            // textBoxMaxArea_BSK
+            // 
+            textBoxMaxArea_BSK.Location = new Point(197, 295);
+            textBoxMaxArea_BSK.Name = "textBoxMaxArea_BSK";
+            textBoxMaxArea_BSK.Size = new Size(125, 29);
+            textBoxMaxArea_BSK.TabIndex = 12;
+            // 
+            // textBoxAvgArea_BSK
+            // 
+            textBoxAvgArea_BSK.Location = new Point(197, 244);
+            textBoxAvgArea_BSK.Name = "textBoxAvgArea_BSK";
+            textBoxAvgArea_BSK.Size = new Size(125, 29);
+            textBoxAvgArea_BSK.TabIndex = 11;
+            // 
+            // textBoxMinPopulation_BSK
+            // 
+            textBoxMinPopulation_BSK.Location = new Point(197, 194);
+            textBoxMinPopulation_BSK.Name = "textBoxMinPopulation_BSK";
+            textBoxMinPopulation_BSK.Size = new Size(125, 29);
+            textBoxMinPopulation_BSK.TabIndex = 10;
+            // 
+            // textBoxMaxPopulation_BSK
+            // 
+            textBoxMaxPopulation_BSK.Location = new Point(197, 145);
+            textBoxMaxPopulation_BSK.Name = "textBoxMaxPopulation_BSK";
+            textBoxMaxPopulation_BSK.Size = new Size(125, 29);
+            textBoxMaxPopulation_BSK.TabIndex = 9;
+            // 
+            // textBoxTotalPopulation_BSK
+            // 
+            textBoxTotalPopulation_BSK.Location = new Point(197, 92);
+            textBoxTotalPopulation_BSK.Name = "textBoxTotalPopulation_BSK";
+            textBoxTotalPopulation_BSK.Size = new Size(125, 29);
+            textBoxTotalPopulation_BSK.TabIndex = 8;
+            // 
+            // textBoxCount_BSK
+            // 
+            textBoxCount_BSK.Location = new Point(197, 38);
+            textBoxCount_BSK.Name = "textBoxCount_BSK";
+            textBoxCount_BSK.Size = new Size(125, 29);
+            textBoxCount_BSK.TabIndex = 7;
+            // 
+            // labelMaxArea_BSK
+            // 
+            labelMaxArea_BSK.AutoSize = true;
+            labelMaxArea_BSK.Location = new Point(25, 298);
+            labelMaxArea_BSK.Name = "labelMaxArea_BSK";
+            labelMaxArea_BSK.Size = new Size(133, 23);
+            labelMaxArea_BSK.TabIndex = 6;
+            labelMaxArea_BSK.Text = "Макс. площадь:";
+            // 
+            // labelMinPopulation_BSK
+            // 
+            labelMinPopulation_BSK.AutoSize = true;
+            labelMinPopulation_BSK.Location = new Point(25, 197);
+            labelMinPopulation_BSK.Name = "labelMinPopulation_BSK";
+            labelMinPopulation_BSK.Size = new Size(141, 23);
+            labelMinPopulation_BSK.TabIndex = 5;
+            labelMinPopulation_BSK.Text = "Мин. население:";
+            // 
             // labelMinArea_BSK
             // 
             labelMinArea_BSK.AutoSize = true;
-            labelMinArea_BSK.Location = new Point(16, 317);
+            labelMinArea_BSK.Location = new Point(25, 345);
             labelMinArea_BSK.Name = "labelMinArea_BSK";
-            labelMinArea_BSK.Size = new Size(182, 21);
+            labelMinArea_BSK.Size = new Size(128, 23);
             labelMinArea_BSK.TabIndex = 4;
-            labelMinArea_BSK.Text = "Минимальная площадь:";
+            labelMinArea_BSK.Text = "Мин. площадь:";
             // 
             // labelMaxPopulation_BSK
             // 
             labelMaxPopulation_BSK.AutoSize = true;
-            labelMaxPopulation_BSK.Location = new Point(14, 240);
+            labelMaxPopulation_BSK.Location = new Point(25, 148);
             labelMaxPopulation_BSK.Name = "labelMaxPopulation_BSK";
-            labelMaxPopulation_BSK.Size = new Size(198, 21);
+            labelMaxPopulation_BSK.Size = new Size(146, 23);
             labelMaxPopulation_BSK.TabIndex = 3;
-            labelMaxPopulation_BSK.Text = "Максимальное население:";
+            labelMaxPopulation_BSK.Text = "Макс. население:";
             // 
             // labelAvgArea_BSK
             // 
             labelAvgArea_BSK.AutoSize = true;
-            labelAvgArea_BSK.Location = new Point(17, 177);
+            labelAvgArea_BSK.Location = new Point(25, 247);
             labelAvgArea_BSK.Name = "labelAvgArea_BSK";
-            labelAvgArea_BSK.Size = new Size(142, 21);
+            labelAvgArea_BSK.Size = new Size(156, 23);
             labelAvgArea_BSK.TabIndex = 2;
             labelAvgArea_BSK.Text = "Средняя площадь:";
             labelAvgArea_BSK.Click += labelAvgArea_BSK_Click;
@@ -495,18 +632,19 @@
             // labelTotalPopulation_BSK
             // 
             labelTotalPopulation_BSK.AutoSize = true;
-            labelTotalPopulation_BSK.Location = new Point(16, 108);
+            labelTotalPopulation_BSK.Location = new Point(25, 95);
             labelTotalPopulation_BSK.Name = "labelTotalPopulation_BSK";
-            labelTotalPopulation_BSK.Size = new Size(139, 21);
+            labelTotalPopulation_BSK.Size = new Size(154, 23);
             labelTotalPopulation_BSK.TabIndex = 1;
             labelTotalPopulation_BSK.Text = "Сумма населения:";
             // 
             // labelCount_BSK
             // 
             labelCount_BSK.AutoSize = true;
-            labelCount_BSK.Location = new Point(14, 36);
+            labelCount_BSK.Font = new Font("Segoe UI", 9.7F);
+            labelCount_BSK.Location = new Point(25, 41);
             labelCount_BSK.Name = "labelCount_BSK";
-            labelCount_BSK.Size = new Size(140, 21);
+            labelCount_BSK.Size = new Size(155, 23);
             labelCount_BSK.TabIndex = 0;
             labelCount_BSK.Text = "Количество стран:";
             // 
@@ -514,7 +652,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 718);
+            ClientSize = new Size(1118, 785);
             Controls.Add(panelCountries_BSK);
             Controls.Add(panelInstruments_BSK);
             Controls.Add(panelToolBar_BSK);
@@ -581,8 +719,8 @@
         private GroupBox groupBoxCountries_BSK;
         private GroupBox groupBoxStatistics_BSK;
         private Button buttonApplyFilter_BSK;
-        private ComboBox comboBoxFilter_BSK;
-        private TextBox textBoxSearch_BSK;
+        private ComboBox comboBoxIsDeveloped_BSK;
+        private TextBox textBoxPopFrom_BSK;
         private Button buttonResetFilter_BSK;
         private Label labelAvgArea_BSK;
         private Label labelTotalPopulation_BSK;
@@ -590,5 +728,18 @@
         private Label labelMinArea_BSK;
         private Label labelMaxPopulation_BSK;
         private StatusStrip statusStripMain_BSK;
+        private Label labelMaxArea_BSK;
+        private Label labelMinPopulation_BSK;
+        private TextBox textBoxMinArea_BSK;
+        private TextBox textBoxMaxArea_BSK;
+        private TextBox textBoxAvgArea_BSK;
+        private TextBox textBoxMinPopulation_BSK;
+        private TextBox textBoxMaxPopulation_BSK;
+        private TextBox textBoxTotalPopulation_BSK;
+        private TextBox textBoxCount_BSK;
+        private TextBox textBoxPopTo_BSK;
+        private Label labelPopTo_BSK;
+        private Label labelPopFrom_BSK;
+        private Label labelIsDeveloped_BSK;
     }
 }
