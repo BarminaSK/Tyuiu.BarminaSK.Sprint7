@@ -505,5 +505,11 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             FormHelp_BSK helpForm = new FormHelp_BSK();
             helpForm.ShowDialog();
         }
+
+        private void ToolStripMenuItemAboutProgram_BSK_Click(object sender, EventArgs e)
+        {
+            FormAbout_BSK aboutForm = new FormAbout_BSK();
+            aboutForm.ShowDialog();
+        }
     }
 }

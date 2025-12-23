@@ -203,6 +203,7 @@
             ToolStripMenuItemAboutProgram_BSK.Name = "ToolStripMenuItemAboutProgram_BSK";
             ToolStripMenuItemAboutProgram_BSK.Size = new Size(224, 28);
             ToolStripMenuItemAboutProgram_BSK.Text = "О программе";
+            ToolStripMenuItemAboutProgram_BSK.Click += ToolStripMenuItemAboutProgram_BSK_Click;
             // 
             // ToolStripMenuItemManual_BSK
             // 
