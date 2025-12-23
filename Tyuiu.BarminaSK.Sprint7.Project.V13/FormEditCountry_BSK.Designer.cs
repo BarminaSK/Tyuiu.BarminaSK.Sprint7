@@ -200,7 +200,11 @@
             Controls.Add(labelArea_BSK);
             Controls.Add(labelCapital_BSK);
             Controls.Add(labelName_BSK);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormEditCountry_BSK";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Редактирование страны";
             ResumeLayout(false);
             PerformLayout();

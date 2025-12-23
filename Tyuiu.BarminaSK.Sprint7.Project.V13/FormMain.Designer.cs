@@ -201,14 +201,14 @@
             // ToolStripMenuItemAboutProgram_BSK
             // 
             ToolStripMenuItemAboutProgram_BSK.Name = "ToolStripMenuItemAboutProgram_BSK";
-            ToolStripMenuItemAboutProgram_BSK.Size = new Size(224, 28);
+            ToolStripMenuItemAboutProgram_BSK.Size = new Size(201, 28);
             ToolStripMenuItemAboutProgram_BSK.Text = "О программе";
             ToolStripMenuItemAboutProgram_BSK.Click += ToolStripMenuItemAboutProgram_BSK_Click;
             // 
             // ToolStripMenuItemManual_BSK
             // 
             ToolStripMenuItemManual_BSK.Name = "ToolStripMenuItemManual_BSK";
-            ToolStripMenuItemManual_BSK.Size = new Size(224, 28);
+            ToolStripMenuItemManual_BSK.Size = new Size(201, 28);
             ToolStripMenuItemManual_BSK.Text = "Руководство";
             ToolStripMenuItemManual_BSK.Click += ToolStripMenuItemManual_BSK_Click;
             // 
@@ -257,8 +257,10 @@
             buttonStatistic_BSK.Name = "buttonStatistic_BSK";
             buttonStatistic_BSK.Size = new Size(78, 74);
             buttonStatistic_BSK.TabIndex = 7;
+            toolTipMain_BSK.SetToolTip(buttonStatistic_BSK, "Показать статистику по текущему списку стран");
             buttonStatistic_BSK.UseVisualStyleBackColor = true;
             buttonStatistic_BSK.Click += buttonStatistic_BSK_Click;
+            buttonStatistic_BSK.MouseEnter += buttonStatistic_BSK_MouseEnter;
             // 
             // buttonShowChart_BSK
             // 
@@ -270,9 +272,10 @@
             buttonShowChart_BSK.Name = "buttonShowChart_BSK";
             buttonShowChart_BSK.Size = new Size(79, 74);
             buttonShowChart_BSK.TabIndex = 5;
-            toolTipMain_BSK.SetToolTip(buttonShowChart_BSK, "Построить график");
+            toolTipMain_BSK.SetToolTip(buttonShowChart_BSK, "Построить график населения стран.\r\nПокажет топ-7 стран в виде круговой диаграммы.");
             buttonShowChart_BSK.UseVisualStyleBackColor = true;
             buttonShowChart_BSK.Click += buttonShowChart_BSK_Click;
+            buttonShowChart_BSK.MouseEnter += buttonShowChart_BSK_MouseEnter;
             // 
             // buttonEditCountry_BSK
             // 
@@ -284,9 +287,10 @@
             buttonEditCountry_BSK.Name = "buttonEditCountry_BSK";
             buttonEditCountry_BSK.Size = new Size(79, 74);
             buttonEditCountry_BSK.TabIndex = 4;
-            toolTipMain_BSK.SetToolTip(buttonEditCountry_BSK, "Редактировать выбранную страну");
+            toolTipMain_BSK.SetToolTip(buttonEditCountry_BSK, "Редактировать информацию о выбранной стране.\r\nОткроет новую форму для ввода информации,\r\nдля этого поставьте курсор на нужную строку.");
             buttonEditCountry_BSK.UseVisualStyleBackColor = true;
             buttonEditCountry_BSK.Click += buttonEditCountry_BSK_Click;
+            buttonEditCountry_BSK.MouseEnter += buttonEditCountry_BSK_MouseEnter;
             // 
             // buttonDeleteCountry_BSK
             // 
@@ -298,9 +302,10 @@
             buttonDeleteCountry_BSK.Name = "buttonDeleteCountry_BSK";
             buttonDeleteCountry_BSK.Size = new Size(79, 74);
             buttonDeleteCountry_BSK.TabIndex = 3;
-            toolTipMain_BSK.SetToolTip(buttonDeleteCountry_BSK, "Удалить выбранную страну");
+            toolTipMain_BSK.SetToolTip(buttonDeleteCountry_BSK, "Удалить выбранную страну из таблицы.\r\nДля этого поставьте курсор на нужную строку.");
             buttonDeleteCountry_BSK.UseVisualStyleBackColor = true;
             buttonDeleteCountry_BSK.Click += buttonDeleteCountry_BSK_Click;
+            buttonDeleteCountry_BSK.MouseEnter += buttonDeleteCountry_BSK_MouseEnter;
             // 
             // buttonAddCountry_BSK
             // 
@@ -312,9 +317,10 @@
             buttonAddCountry_BSK.Name = "buttonAddCountry_BSK";
             buttonAddCountry_BSK.Size = new Size(79, 74);
             buttonAddCountry_BSK.TabIndex = 2;
-            toolTipMain_BSK.SetToolTip(buttonAddCountry_BSK, "Добавить новую страну");
+            toolTipMain_BSK.SetToolTip(buttonAddCountry_BSK, "Добавить новую страну в таблицу.\r\nОткроет форму для ввода информации о стране.");
             buttonAddCountry_BSK.UseVisualStyleBackColor = true;
             buttonAddCountry_BSK.Click += buttonAddCountry_BSK_Click;
+            buttonAddCountry_BSK.MouseEnter += buttonAddCountry_BSK_MouseEnter;
             // 
             // buttonSaveFile_BSK
             // 
@@ -329,6 +335,7 @@
             toolTipMain_BSK.SetToolTip(buttonSaveFile_BSK, "Сохранить данные в CSV-файл");
             buttonSaveFile_BSK.UseVisualStyleBackColor = true;
             buttonSaveFile_BSK.Click += buttonSaveFile_BSK_Click;
+            buttonSaveFile_BSK.MouseEnter += buttonSaveFile_BSK_MouseEnter;
             // 
             // buttonOpenFile_BSK
             // 
@@ -343,6 +350,7 @@
             toolTipMain_BSK.SetToolTip(buttonOpenFile_BSK, "Загрузить данные из CSV-файла");
             buttonOpenFile_BSK.UseVisualStyleBackColor = true;
             buttonOpenFile_BSK.Click += buttonOpenFile_BSK_Click;
+            buttonOpenFile_BSK.MouseEnter += buttonOpenFile_BSK_MouseEnter;
             // 
             // buttonSearch_BSK
             // 
@@ -355,13 +363,16 @@
             buttonSearch_BSK.Name = "buttonSearch_BSK";
             buttonSearch_BSK.Size = new Size(78, 74);
             buttonSearch_BSK.TabIndex = 6;
+            toolTipMain_BSK.SetToolTip(buttonSearch_BSK, "Найти страны, содержащие\r\nвведённое слово в названии");
             buttonSearch_BSK.UseVisualStyleBackColor = true;
             buttonSearch_BSK.Click += buttonSearch_BSK_Click_1;
+            buttonSearch_BSK.MouseEnter += buttonSearch_BSK_MouseEnter;
             // 
             // toolTipMain_BSK
             // 
             toolTipMain_BSK.IsBalloon = true;
             toolTipMain_BSK.ToolTipIcon = ToolTipIcon.Info;
+            toolTipMain_BSK.ToolTipTitle = "Подсказка";
             // 
             // panelInstruments_BSK
             // 

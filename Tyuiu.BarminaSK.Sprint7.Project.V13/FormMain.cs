@@ -511,5 +511,45 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             FormAbout_BSK aboutForm = new FormAbout_BSK();
             aboutForm.ShowDialog();
         }
+
+        private void buttonOpenFile_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Открыть файл";
+        }
+
+        private void buttonSaveFile_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Сохранить файл";
+        }
+
+        private void buttonAddCountry_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Добавить страну";
+        }
+
+        private void buttonDeleteCountry_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Удалить страну";
+        }
+
+        private void buttonEditCountry_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Изменить страну";
+        }
+
+        private void buttonShowChart_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Визуализация данных";
+        }
+
+        private void buttonStatistic_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Анализ данных";
+        }
+
+        private void buttonSearch_BSK_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipMain_BSK.ToolTipTitle = "Поиск по названию";
+        }
     }
 }

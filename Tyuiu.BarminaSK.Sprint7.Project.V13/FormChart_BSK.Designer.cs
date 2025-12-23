@@ -87,7 +87,11 @@
             Controls.Add(chartCountries_BSK);
             Controls.Add(buttonClose_BSK);
             Font = new Font("Segoe UI", 9.7F);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormChart_BSK";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "График населения стран";
             ((System.ComponentModel.ISupportInitialize)chartCountries_BSK).EndInit();
             ResumeLayout(false);
