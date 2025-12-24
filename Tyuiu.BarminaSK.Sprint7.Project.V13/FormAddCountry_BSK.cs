@@ -68,7 +68,7 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
                 MessageBox.Show("Площадь должна быть числом!\nНапример: 17100000 или 12345.67",
                                "Ошибка ввода площади");
                 textBoxArea_BSK.Focus();
-                textBoxArea_BSK.SelectAll(); // Выделяем текст для исправления
+                textBoxArea_BSK.SelectAll();
                 return;
             }
 
@@ -140,22 +140,5 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        private void textBoxArea_BSK_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxPopulation_BSK_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
     }
 }

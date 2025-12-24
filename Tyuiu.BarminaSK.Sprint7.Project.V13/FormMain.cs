@@ -13,7 +13,6 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
 
             dataService = new DataService_BSK();
             countries = new List<Country_BSK>();
-            currentDisplay = new List<Country_BSK>();
 
             SetupInitialState();
 
@@ -116,7 +115,6 @@ namespace Tyuiu.BarminaSK.Sprint7.Project.V13
 
         private void buttonOpenFile_BSK_Click(object sender, EventArgs e)
         {
-            //buttonOpenFile_BSK.ToolTipTitle = "Открыть файл";
             OpenFile();
         }
         private void OpenFile()

@@ -264,6 +264,7 @@
             // 
             // buttonShowChart_BSK
             // 
+            buttonShowChart_BSK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonShowChart_BSK.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
             buttonShowChart_BSK.FlatAppearance.BorderSize = 2;
             buttonShowChart_BSK.FlatStyle = FlatStyle.Flat;
@@ -395,6 +396,7 @@
             // 
             // textBoxSearch_BSK
             // 
+            textBoxSearch_BSK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxSearch_BSK.Location = new Point(773, 54);
             textBoxSearch_BSK.Name = "textBoxSearch_BSK";
             textBoxSearch_BSK.Size = new Size(217, 29);
@@ -402,6 +404,7 @@
             // 
             // labelSearch_BSK
             // 
+            labelSearch_BSK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelSearch_BSK.AutoSize = true;
             labelSearch_BSK.Font = new Font("Segoe UI", 9.7F);
             labelSearch_BSK.Location = new Point(773, 17);
@@ -517,7 +520,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(groupBoxStatistics_BSK);
             splitContainer1.Size = new Size(1118, 545);
-            splitContainer1.SplitterDistance = 783;
+            splitContainer1.SplitterDistance = 780;
             splitContainer1.TabIndex = 0;
             // 
             // groupBoxCountries_BSK
@@ -527,7 +530,7 @@
             groupBoxCountries_BSK.Font = new Font("Segoe UI", 9.7F);
             groupBoxCountries_BSK.Location = new Point(0, 0);
             groupBoxCountries_BSK.Name = "groupBoxCountries_BSK";
-            groupBoxCountries_BSK.Size = new Size(783, 545);
+            groupBoxCountries_BSK.Size = new Size(780, 545);
             groupBoxCountries_BSK.TabIndex = 0;
             groupBoxCountries_BSK.TabStop = false;
             groupBoxCountries_BSK.Text = "Страны ";
@@ -542,7 +545,7 @@
             dataGridViewCountries_BSK.RowHeadersVisible = false;
             dataGridViewCountries_BSK.RowHeadersWidth = 51;
             dataGridViewCountries_BSK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCountries_BSK.Size = new Size(777, 517);
+            dataGridViewCountries_BSK.Size = new Size(774, 517);
             dataGridViewCountries_BSK.TabIndex = 0;
             dataGridViewCountries_BSK.CellContentClick += dataGridViewCountries_BSK_CellContentClick;
             // 
@@ -566,7 +569,7 @@
             groupBoxStatistics_BSK.Font = new Font("Segoe UI", 9.7F);
             groupBoxStatistics_BSK.Location = new Point(0, 0);
             groupBoxStatistics_BSK.Name = "groupBoxStatistics_BSK";
-            groupBoxStatistics_BSK.Size = new Size(331, 545);
+            groupBoxStatistics_BSK.Size = new Size(334, 545);
             groupBoxStatistics_BSK.TabIndex = 0;
             groupBoxStatistics_BSK.TabStop = false;
             groupBoxStatistics_BSK.Text = "Статистика";
@@ -689,6 +692,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1118, 785);
             Controls.Add(panelCountries_BSK);
             Controls.Add(panelInstruments_BSK);
@@ -696,6 +700,7 @@
             Controls.Add(panelStatus_BSK);
             Controls.Add(menuStripMain_BSK);
             MainMenuStrip = menuStripMain_BSK;
+            MinimumSize = new Size(1100, 800);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "География стран";
